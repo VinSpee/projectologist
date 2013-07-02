@@ -1,3 +1,25 @@
++font-face("bmc", font-files("bmc-icons.woff", woff, "bmc-icons.ttf", truetype, "bmc-icons.svg", svg), "bmc-icons.eot")
+
+%icon
+	font-family: "bmc"
+	+adjust-font-size-to(ms(3))
+	-webkit-font-feature-settings: "liga","dlig"
+	-moz-font-feature-settings: "liga=1, dlig=1"
+	-moz-font-feature-settings: "liga","dlig"
+	-ms-font-feature-settings: "liga","dlig"
+	-o-font-feature-settings: "liga","dlig"
+	font-feature-settings: "liga","dlig"
+	text-rendering: optimizeLegibility
+	text-transform: lowercase
+
+%body-text
+	font-family: "ff-tisa-web-pro"
+
+%headline
+	font-family: "futura-pt"
+	font-weight: 700
+	text-transform: uppercase
+
 // Icons
 [data-icon]:before
 	//font-family: 'yourfont'

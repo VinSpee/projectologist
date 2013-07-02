@@ -1,0 +1,25 @@
+[class*=navigation]
+	@extend .bare-list
+	> li
+		+trailer(.5)
+		> a
+			text-decoration: none
+			+deep-bg($base04)
+			color: $base03
+			padding: 0 $grid-padding
+			+transition(padding-right .1s ease-out)
+			+translateZ(0)
+			+backface-visibility(hidden)
+			+perspective(1000)
+			&:hover
+				color: $base4
+				+deep-bg($base11)
+				padding-right: 1em
+				+transition(padding-right .1s ease-in)
+				&:before
+					color: scale-color($base11, $lightness: -50%)
+			&:before
+				@extend %headline
+				display: inline-block
+				content: "›"
+				margin-right: $grid-padding

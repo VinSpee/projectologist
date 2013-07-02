@@ -1,0 +1,16 @@
+[class*=button]
+	display: block
+	text-decoration: none
+	text-align: center
+	@extend %headline
+	+rhythm(0, .5, .5, 0)
+	color: $base4
+
+.button
+	+deep-bg($base0)
+
+.button--positive
+	+deep-bg($base13)
+
+.button--negative
+	+deep-bg($base01)

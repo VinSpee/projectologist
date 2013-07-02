@@ -1,0 +1,26 @@
+[class*=notification--]
+	display: block
+	width: 100%
+	background: $base13
+	margin: rhythm(.5) auto
+	padding: rhythm(.5) 1em
+	overflow: hidden
+	position: relative
+	text-align: center
+	+shadowed
+
+.notification__message
+	@extend %headline
+	color: $base4
+	+at-breakpoint(34em)
+		+float(right)
+		margin-right: $grid-padding * 3
+
+.notification--information
+	background: $warning
+
+.notification--positive
+	background: $good
+
+.notification--negative
+	background: $bad

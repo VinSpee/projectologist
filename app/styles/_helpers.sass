@@ -1,3 +1,10 @@
+$contrasted-dark-default:  $base00
+$contrasted-light-default: $base4
+$contrasted-lightness-threshold: 50%
+
+=visually-hidden
+	@extend %visually-hidden
+
 %visually-hidden
 	border: 0
 	clip: rect(0 0 0 0)
@@ -8,12 +15,102 @@
 	position: absolute
 	width: 1px
 
-@mixin unhide
+=unhide
+	@extend %unhide
+
+%unhide
 	width: auto
 	clip: none
 	margin: 0
 	position: relative
 	height: auto
+=placeholder($color)
+	&.placeholder
+		color: $color
+	&:-moz-placeholder
+		color: $color
+	&::-webkit-input-placeholder
+		color: $color
+
+=push
+	@extend %push
+
+%push
+	+transition(background .2s ease-in-out, transform .4s ease-out, box-shadow .4s ease-out)
+	&:hover
+		+translate3d(0, -2px, 0)
+		+transition(background .2s ease-in-out, transform .1s ease-in, box-shadow .1s ease-in)
+	&:active
+		+translate3d(0, 0, 0)
+		
+
+=round
+	@extend %round
+
+=fade
+	@extend %fade
+
+%fade
+	+transition(color .25s ease-in-out, background .25s ease-in-out, transform .2s ease-in-out)
 
 .unhide
 	+unhide
+
+.pad-grid
+	padding-top: inherit
+	padding-right: 0 - $grid-padding
+	padding-bottom: inherit
+	padding-left: 0 - $grid-padding
+	margin-top: inherit
+	margin-right: 0 - $grid-padding - .02em
+	margin-bottom: inherit
+	margin-left: 0 - $grid-padding - .02em
+
+=full-width
+	@extend .pad-grid
+
+=selected($color: black, $background: white)
+	::-moz-selection, ::selection
+		background: $background
+		color: $color
+
+@function msem($val)
+	@return (ms($val) / 1px) / ($base-font-size / 1px) * 1em
+
+=span-columns-and-fill-gutter($cols, $context: false)
+	@if ($context != false)
+		width: space($cols, $context)
+	@else
+		width: space($cols)
+	margin-right: 0
+	padding-right: 0
+
+.end
+	+omega
+
+=anchored($color: black, $bg: white)
+	+box-shadow(inset .2em 0 0 0 scale-color($bg, $lightness: -15%))
+	background: $bg
+	color: $color
+	padding-left: $grid-padding
+
+=deep-bg($color)
+	background: $color
+	+box-shadow(inset 0 -.2em 0 0 scale-color($color, $lightness: -25%))
+
+=long-shadow($color)
+	+omg-text(scale-color($color, $lightness: -15%), "bottom-right", 1000, "flat")
+
+=shadowed($shadows:"")
+	@if $shadows != ""
+		+box-shadow(3px 3px 2px -3px transparentize($base00, .7), $shadows)
+	@else
+		+box-shadow(3px 3px 2px -3px transparentize($base00, .7))
+
+%matted
+	padding: rhythm(.5) $grid-padding
+	+full-width
+	background: transparentize(white, .2)
+
+=matted
+	@extend %matted

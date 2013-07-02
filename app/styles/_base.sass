@@ -1,6 +1,31 @@
-div[role="main"]
+html
+	background: $base14
+	@extend %body-text
+	color: $base10
+
+main[role="main"]
 	+container
 	+susy-grid-background
 	+at-breakpoint($break)
 		+susy-grid-background
 		+set-container-width
+
+#{headings()}
+	@extend %headline
+
+h1
+	color: $base03
+	+rhythm(1, 0, 0, 1)
+
+h2
+	+anchored($base14, $base2)
+
+.bare-list
+	list-style: none
+	margin: 0
+	padding: 0
+
+.simple-list
+	@extend .bare-list
+	> li
+		+rhythm(.5, 0, 0, .5)
