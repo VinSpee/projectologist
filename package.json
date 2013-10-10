@@ -8,7 +8,6 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-coffee": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-compass": "*",
     "grunt-contrib-requirejs": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-cssmin": "*",
@@ -24,7 +23,9 @@
     "grunt-regarde": "*",
     "grunt-mocha": "*",
     "grunt-open": "*",
-    "matchdep": "*"
+    "matchdep": "*",
+    "grunt-contrib-stylus": "~0.8.0",
+    "axis-css": "~0.1.6"
   },
   "engines": {
     "node": ">=0.8.0"

@@ -1,0 +1,29 @@
+// Named ratios - http://modularscale.com
+minor_second = 1.067
+major_second = 1.125
+minor_third = 1.2
+major_third = 1.25
+perfect_fourth = 1.333
+aug_fourth = 1.414
+perfect_fifth = 1.5
+minor_sixth = 1.6
+golden = 1.618
+major_sixth = 1.667
+minor_seventh = 1.778
+major_seventh = 1.875
+octave = 2
+major_tenth = 2.5
+major_eleventh = 2.667
+major_twelfth = 3
+double_octave = 4
+
+// Set your ratio
+typography_ratio = golden
+mobile_ratio = major_third
+
+ms(numbawang = 1, ratio = typography_ratio)
+	numbawang = numbawang + 1
+	return (numbawang * ratio * 10)px
+
+base-font-size = 16px
+base-line-height = base-font-size * 2

@@ -3,7 +3,9 @@ require.config
 	paths:
 		jquery: "../components/jquery/jquery.min"
 
-require ["app"], (app) ->
+define (require, module, exports) ->
+
+	app = require "app"
 
 	# use app here
 	console.log app

@@ -1,4 +1,5 @@
 temp
+.DS_Store
 .tmp
 dist
 *.sass-cache
