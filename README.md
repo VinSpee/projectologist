@@ -1,4 +1,5 @@
 ## Dependencies:
+- nodejs 
 - yeoman
 - compass
 - singularity
@@ -6,12 +7,12 @@
 
 ## Install:
 
-1. npm install yo grunt-cli bower
-1. sudo gem install compass
-2. sudo gem install modular-scale
-1. sudo gem install singularitygs
-1. npm install
-1. bower install
-3. grunt server
+1. `npm install yo grunt-cli bower`
+2. `sudo gem install compass`
+3. `sudo gem install modular-scale`
+4. `sudo gem install singularitygs`
+5. `npm install`
+6. `bower install`
+7. `grunt server`
 
 # YOU WIN!
