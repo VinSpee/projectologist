@@ -7,6 +7,7 @@
 
 ## Install:
 
+0. `git clone https://github.com/VinSpee/projectologist.git; cd projectologist`
 1. `npm install yo grunt-cli bower`
 2. `sudo gem install compass`
 3. `sudo gem install modular-scale`
