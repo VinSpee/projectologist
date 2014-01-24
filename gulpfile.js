@@ -53,7 +53,6 @@ gulp.task('styles', function() {
 		.pipe(plugins.notify({ message: 'Styles task complete' }));
 });
 
-
 gulp.task('html', function() {
 	return gulp.src(sources.html)
 		.pipe(plugins.htmlhint())

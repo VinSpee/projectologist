@@ -1,0 +1,76 @@
+/*
+ * # Fonts
+ *
+ * We only use two fonts for text and one for prepend-icons.
+ *
+ */
+
+%font__headline
+	font-family: 'Sans serif'
+	font-weight: 400
+
+%font__headline--thin
+	@extend %font__headline
+	font-weight: 300
+
+%font__headline--thick
+	@extend %font__headline
+	font-weight: 700
+
+/*
+ * ## Helvetica Neue
+ *
+ * ```
+ * <p>Helvetica Neue, for everything else.</p>
+ * ```
+ */
+
+%font__text
+	font-family: 'Helvetica Neue', 'Sans serif'
+
+
+
+%font__icon
+  font-family: 'youriconfont'
+	speak: none
+	font-style: normal
+	font-weight: normal
+	font-variant: normal
+	text-transform: none
+	line-height: 1
+	+adjust-font-size-to(16px)
+	/* Better Font Rendering ===========
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+%font__icon--big
+	@extend %font__icon
+	+adjust-font-size-to(32px)
+
+[data-icon]
+	@extend %font__icon
+	content: attr(data-icon)
+	+inline-block
+	+hide-text
+
+.icon
+	@extend %font__icon
+	outline: none
+
+.icon--negative
+	@extend .icon
+	color: nth($negative, 3)
+	+transition(color .2s linear)
+	&:hover
+		color: nth($negative, 2)
+
+[class*="prepend-icon__"]:before
+	@extend %font__icon
+	margin-right: msem(-4)
+
+[class*="icon"][class*="--big"]
+	@extend %font__icon--big
+
+[class*="prepend-icon"][class*="--big"]
+	&:before
+		@extend %font__icon--big

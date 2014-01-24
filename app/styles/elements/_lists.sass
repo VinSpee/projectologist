@@ -1,0 +1,108 @@
+/*
+ * # Lists
+ *
+ * standard, untreated list
+ *
+ * ```
+ * <ol class="list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ol>
+ * ```
+ *
+ * ```
+ * <ul class="list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ul>
+ * ```
+ */
+
+/*
+ * ## Bare List
+ *
+ * standard, untreated list
+ *
+ * ```
+ * <ul class="bare-list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ul>
+ * ```
+ */
+
+.bare-list
+	margin: 0
+	padding: 0
+	list-style: none
+	> li
+		margin: 0
+		padding: 0
+
+
+/*
+ * ## Line List
+ *
+ * List items in a line
+ *
+ * ```
+ * <ul class="line-list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ul>
+ * ```
+ */
+
+.line-list
+	@extend .bare-list
+	> li
+		+inline-block
+
+/*
+ * ## Tabs
+ *
+ * Tabs are equal-width horizontal layouts.
+ *
+ * ```
+ * <ul class="tabs">
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 1</a>
+ * 	</li>
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 2</a>
+ * 	</li>
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 3</a>
+ * 	</li>
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 4</a>
+ * 	</li>
+ * </ul>
+ * ```
+ */
+
+.tabs
+	@extend .bare-list
+	display: table
+	table-layout: fixed
+	width: 100%
+	overflow: hidden
+
+.tabs__item
+	text-align: center
+	display: block
+	+trailer(.25)
+	+breakpoint(420px)
+		display: table-cell
+
+.tabs__action
+	display: block
+
+
+.actions-list
+	@extend .bare-list
+	text-align: center
+
+	button
+		width: 100%
+

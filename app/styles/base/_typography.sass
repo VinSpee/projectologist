@@ -1,0 +1,54 @@
+/*
+ * # Typography
+ *
+ * ### We handle the rhythm for you.
+ *
+ * We follow a base font size of 16px, a line height of 1.5, and a perfect
+ * fourth modular scale.
+ *
+ * * Only add margins to the bottom of an element.
+ * * Never add margins or padding directly, instead use `+trailer()`,
+ *	 `+leader()`, and `+rhythm()`.
+ * * Never add a border to an element. Use `+rhythm-border()` or `box-shadow`
+ *	 instead.
+ *
+ */
+// Override this because salesforce hates everything that is good
+
+// Vertical Rhythm
++establish-baseline()
+
+$base-font-size: 16px
+$base-line-height : $base-font-size * 1.5
++establish-baseline
+
+// Modular Scale
+$base-size: $base-font-size $base-line-height
+$ratio: fourth()
+
+html
+	@extend %font__text
+	color: nth($shade, 2)
+
+/*
+ * ## Paragraphs
+ *
+ * ```
+ * <p>This is a paragraph. It has some words and some sentences. Deal with it. This is a paragraph. It has some words and some sentences. Deal with it.</p>
+ * <p>This is a paragraph. It has some words and some sentences. Deal with it.</p>
+ * ```
+ */
+
+p
+	+rhythm(0, 0, 0, 1)
+	max-width: 40em
+	&:last-child
+		+trailer(0)
+
+a
+	color: nth($neutral, 3)
+	+transition(color .2s linear)
+	cursor: pointer
+	&:hover
+		color: nth($neutral, 4)
+		text-decoration: underline
