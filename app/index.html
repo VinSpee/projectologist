@@ -1,46 +1,294 @@
+{block:tumblrThemr}
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="{block:English}en{/block:English}{block:French}fr{/block:French}{block:German}de{/block:German}{block:Japanese}ja{/block:Japanese}{block:Italian}it{/block:Italian}{block:Spanish}es{/block:Spanish}{block:Polish}pl{/block:Polish}" class="no-js">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title></title>
-		<meta name="description" content="">
+		<title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
+		{block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
 		<meta name="viewport" content="width=device-width">
 
-		<link rel="stylesheet" href="styles/main.css">
-		<!--<script src="components/modernizr/modernizr.js"></script>-->
+		<link rel="stylesheet" href="themes/lunch-bus/.tmp/styles/main.css">
+		<style type="text/css">
+			{CustomCSS}
+
+			/*Tumblr inherited */
+			iframe#tumblr_controls {}
+			.search_query {}
+			.read_more_container a {}
+		</style>
+		<link rel="apple-touch-icon" href="{PortraitURL-128}">
+		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+		<script src="themes/lunch-bus/app/components/modernizr/modernizr.js"></script>
 	</head>
-
 	<body>
-
-		<!-- Add your site or application content here -->
 		<div class="page">
-
 			<header role="banner">
-				<h1>This is a page heading</h1>
+
+				<h1 class="branding">
+					<a class="logo" href="/">{Title}</a>
+				</h1>
+				{block:Description}
+				<span class="subtitle">
+					{Description}
+				</span>
+				{/block:Description}
+
 			</header>
 
 			<main role="main">
-				<p>main content</p>
-			</main>
+				<section class="content--main"><!-- start content -->
+					{block:SearchPage}
+					<section class="search-results--term">
+						<p>{lang:Found SearchResultCount results for SearchQuery 2}</p>
+						{block:NoSearchResults}<p>{lang:No results for SearchQuery 2}</p>{/block:NoSearchResults}
+					</section>
+					{/block:SearchPage}
 
-			<footer role="contentinfo">
-				<p>footer content</p>
+					{block:TagPage}
+					<section class="search-results--tag">
+						<p>{lang:TagResultCount posts tagged Tag 3}</p>
+					</section>
+					{/block:TagPage}
+
+					{block:Posts}
+					<article class="post {TagsAsClasses}">
+						{block:Date}
+						{block:NewDayDate}
+						<time datetime="{Year}-{Month}-{DayOfMonth}">{DayOfWeek}, {Month} {DayOfMonth}, {Year}</time>
+						{/block:NewDayDate}
+						{block:SameDayDate}
+						<time datetime="{Year}-{Month}-{DayOfMonth}">{DayOfWeek}, {Month} {DayOfMonth}, {Year}</time>
+						{/block:SameDayDate}
+						{/block:Date}
+
+						{block:Text}
+						<div class="post--text">
+							{block:Title}
+							<header class="post__header">
+								<h2>{Title}</h2>
+							</header>
+							{/block:Title}
+							<section class="post__content">
+								{Body}
+							</section>
+						</div>
+						{/block:Text}
+
+						{block:Quote}
+						<div class="post--quote">
+							<figure class="quote">
+								<blockquote>{Quote}</blockquote>
+								{block:Source}
+								<figcaption><cite class="quote__citation">{Source}</cite></figcaption>
+								{/block:Source}
+							</figure>
+						</div>
+						{/block:Quote}
+
+						{block:Link}
+						<div class="post--link">
+							<header class="post__header--link">
+								<h2><a href="{URL}" {Target}>{Name}</a></h2>
+							</header>
+							{block:Description}
+							<section class="post__caption--link">
+								{Description}
+							</section>
+							{/block:Description}
+						</div>
+						{/block:Link}
+
+						{block:Video}
+						<figure class="post--video">
+							<div class="video">
+								{Video-500}
+							</div>
+								{block:Caption}
+							<figcaption class="post__caption--video">
+								{Caption}
+							</figcaption>
+							{/block:Caption}
+						</figure>
+						{/block:Video}
+
+						{block:Audio}
+						<div class="post--audio">
+							{block:AlbumArt}
+							<img class="album-art" src="{AlbumArtURL}" alt="">
+							{/block:AlbumArt}
+							<div class="player--audio">
+								{AudioPlayerBlack}
+							</div>
+							{block:Caption}
+							<section class="post__caption--audio">
+								{Caption}
+							</section>
+							{/block:Caption}
+						</div>
+						{/block:Audio}
+
+						{block:Photo}
+						<figure class="post--photo">
+							{LinkOpenTag}
+							<img class="photo" src="{PhotoURL-400}" alt="{PhotoAlt}"/>
+							{LinkCloseTag}
+							{block:Caption}
+							<figcaption class="post__caption--photo">
+								{Caption}
+							</figcaption>
+							{/block:Caption}
+						</figure>
+						{/block:Photo}
+
+						{block:Photoset}
+						<figure class="post--photoset">
+							<ul class="post__items--photoset">
+								{block:Photos}
+									<li>
+										<figure class="photoset">
+											<img class="photoset__photo" src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+											{block:Caption}
+											<figcaption class="post__caption--photo">
+												<div class="caption">{Caption}</div>
+											</figcaption>
+											{/block:Caption}
+										</figure>
+									</li>
+								{/block:Photos}
+							</ul>
+							{block:Caption}
+							<figcaption>
+								<p class="post__caption--photoset">{Caption}</p>
+							</figcaption>
+							{/block:Caption}
+						</figure>
+						{/block:Photoset}
+
+						{block:Panorama}
+						<figure class="post--panorama">
+							{LinkOpenTag}
+							<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />
+							{LinkCloseTag}
+							{block:Caption}
+							<figcaption>
+								<p class="post__caption--panorama">{Caption}</p>
+							</figcaption>
+							{/block:Caption}
+						</figure>
+						{/block:Panorama}
+
+						{block:Chat}
+						<section class="post--chat">
+							{block:Title}
+							<header class="post__header">
+								<h2>{Title}</h2>
+							</header>
+							{/block:Title}
+							{block:Lines}
+							<ul class="post__conversation">
+								<li class="conversation__line {Alt}">
+									{block:Label}
+									<span class="conversation__person">{Label}</span>
+									{/block:Label}
+									<span class="conversation__person-said">{Line}</span>
+								</li>
+							</ul>
+							{/block:Lines}
+						</section>
+						{/block:Chat}
+
+						{block:Answer}
+						<figure class="media answer__asker">
+							<img class="media__fig asker__avatar" src="{AskerPortraitURL-40}">
+							<figcaption class="media__body asker__name">{Asker}</figcaption>
+						</figure>
+						<dl class="post--answer">
+							<dt class="answer__question">{Question}</dt>
+							<dd class="answer__answer">{Answer}</dd>
+						</dl>
+						{/block:Answer}
+
+						{block:IndexPage}
+						<a href="{Permalink}" class="permalink">{lang:Permalink}</a>
+						{/block:IndexPage}
+					</article>
+					{/block:Posts}
+
+					{block:PermalinkPagination}
+					<ul class="pagination">
+						{block:PreviousPost}
+						<li>
+							<a class="pagination__prev"href="{PreviousPost}">{lang:Previous post}</a>
+						</li>
+						{/block:PreviousPost}
+						{block:NextPost}
+						<li>
+							<a class="next" href="{NextPost}">{lang:Next post}</a>
+						</li>
+						{/block:NextPost}
+					</ul>
+					{/block:PermalinkPagination}
+
+					{block:Pagination}
+					<ul class="pagination">
+						{block:PreviousPage}
+						<li>
+							<a class="previous-page" href="{PreviousPage}">{lang:Previous}</a>
+						</li>
+						{/block:PreviousPage}
+
+						{block:JumpPagination length="5"}
+						{block:CurrentPage}
+						<li>
+							<span class="current-page">{PageNumber}</span>
+						</li>
+						{/block:CurrentPage}
+						{block:JumpPage}
+						<li>
+							<a class="jump-page" href="{URL}">{PageNumber}</a>
+						</li>
+						{/block:JumpPage}
+						{/block:JumpPagination}
+
+						{block:NextPage}
+						<li>
+							<a class="next-page" href="{NextPage}">{lang:Next}</a>
+						</li>
+						{/block:NextPage}
+					</ul>
+					{/block:Pagination}
+				</section><!--close content-->
+			</main>
+			<footer class="contentinfo">
+				<nav role="navigation" class="nav">
+					<ul class="nav--main">
+						{block:HasPages}
+						{block:Pages}
+						<li><a href="{URL}">{Label}</a></li>
+						{/block:Pages}
+						{/block:HasPages}
+						<li><a href="/archive">{lang:Archive}</a></li>
+						{block:AskEnabled}
+						<li><a href="/ask">{AskLabel}</a></li>
+						{/block:AskEnabled}
+					</ul>
+
+					<div class="search">
+						<form class="search--main">
+							<input class="search__field" type="search" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
+							<input class="search__button" type="submit" value="search">
+						</form>
+					</div>
+				</nav>
 			</footer>
 
 		</div>
-
-		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-		<script>
-				var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-				g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-				s.parentNode.insertBefore(g,s)}(document,'script'));
-		</script>
-
-		<!-- build:js scripts/main.js -->
-		<!--<script data-main="scripts/main" src="components/requirejs/require.js"></script>-->
-		<!-- endbuild -->
-
+		<!--<script data-main="scripts/main" src="themes/lunch-bus/app/components/requirejs/require.js"></script>-->
+		<script type="text/javascript" src="//use.typekit.net/ldn1pez.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</body>
 </html>
+{/block:tumblrThemr}
