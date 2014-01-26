@@ -36,11 +36,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
 	return gulp.src(sources.styles)
 		.pipe(plugins.compass({
-			sass: './app/styles/',
-			css: './build/styles/',
-			image: './images/',
-			font: './fonts/',
-			require: ['singularitygs']
+			config_file: './config.rb',
 		}))
 		.pipe(plugins.autoprefixer("last 2 version", "> 1%"))
 		.pipe(plugins.csslint({
