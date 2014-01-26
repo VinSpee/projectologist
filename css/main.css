@@ -1,0 +1,1037 @@
+@charset "UTF-8";
+/* line 17, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* line 22, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1; }
+
+/* line 24, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 26, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 28, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+/* line 30, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none; }
+  /* line 103, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+/* line 32, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none; }
+
+/* line 116, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+/* line 36, ../../../.rvm/gems/ruby-1.9.3-p484/gems/toolkit-1.3.8/stylesheets/toolkit/_box-sizing.scss */
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url('../behaviors/box-sizing/boxsizing.php'); }
+
+/* line 4, ../../../.rvm/gems/ruby-1.9.3-p484/gems/toolkit-1.3.8/stylesheets/toolkit/_fluid-media.scss */
+img, video {
+  max-width: 100%;
+  height: auto; }
+
+/* # Colors
+ *
+ * Don't use anything else. Seriously.
+ *
+ * ```
+ * <ul class="bare-list">
+ * 	<li>
+ * 		<ul class="line-list">
+ * 			<li class="colors__shade--1">nth($shade, 1)
+ * 			<li class="colors__shade--2">nth($shade, 2)
+ * 			<li class="colors__shade--3">nth($shade, 3)
+ * 			<li class="colors__shade--4">nth($shade, 4)
+ * 			<li class="colors__shade--5">nth($shade, 5)
+ * 			<li class="colors__shade--5">nth($shade, 6)
+ * 		</ul>
+ * 	</li>
+ * 	<li>
+ * 		<ul class="line-list">
+ * 			<li class="colors__positive--1">nth($positive, 1)
+ * 			<li class="colors__positive--2">nth($positive, 2)
+ * 			<li class="colors__positive--3">nth($positive, 3)
+ * 			<li class="colors__positive--4">nth($positive, 4)
+ * 			<li class="colors__positive--5">nth($positive, 5)
+ * 		</ul>
+ * 	</li>
+ * 	<li>
+ * 		<ul class="line-list">
+ * 			<li class="colors__negative--1">nth($negative, 1)
+ * 			<li class="colors__negative--2">nth($negative, 2)
+ * 			<li class="colors__negative--3">nth($negative, 3)
+ * 			<li class="colors__negative--4">nth($negative, 4)
+ * 			<li class="colors__negative--5">nth($negative, 5)
+ * 		</ul>
+ * 	</li>
+ * 	<li>
+ * 		<ul class="line-list">
+ * 			<li class="colors__neutral--1">nth($neutral, 1)
+ * 			<li class="colors__neutral--2">nth($neutral, 2)
+ * 			<li class="colors__neutral--3">nth($neutral, 3)
+ * 			<li class="colors__neutral--4">nth($neutral, 4)
+ * 			<li class="colors__neutral--5">nth($neutral, 5)
+ * 		</ul>
+ * 	</li>
+ * </ul>
+ * ```
+ */
+/* # Typography
+ *
+ * ### We handle the rhythm for you.
+ *
+ * We follow a base font size of 16px, a line height of 1.5, and a perfect
+ * fourth modular scale.
+ *
+ * * Only add margins to the bottom of an element.
+ * * Never add margins or padding directly, instead use `+trailer()`,
+ *	 `+leader()`, and `+rhythm()`.
+ * * Never add a border to an element. Use `+rhythm-border()` or `box-shadow`
+ *	 instead.
+ *
+ */
+/* line 61, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+* html {
+  font-size: 100%; }
+
+/* line 64, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+html {
+  font-size: 16px;
+  line-height: 1.5em; }
+
+/* line 61, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+* html {
+  font-size: 100%; }
+
+/* line 64, ../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+html {
+  font-size: 16px;
+  line-height: 1.5em; }
+
+/* line 29, ../app/styles/base/_typography.sass */
+html {
+  color: #3f3e44; }
+
+/* ## Paragraphs
+ *
+ * ```
+ * <p>This is a paragraph. It has some words and some sentences. Deal with it. This is a paragraph. It has some words and some sentences. Deal with it.</p>
+ * <p>This is a paragraph. It has some words and some sentences. Deal with it.</p>
+ * ```
+ */
+/* line 42, ../app/styles/base/_typography.sass */
+p {
+  margin-top: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  margin-bottom: 1.5em;
+  max-width: 40em; }
+  /* line 45, ../app/styles/base/_typography.sass */
+  p:last-child {
+    margin-bottom: 0em; }
+
+/* line 48, ../app/styles/base/_typography.sass */
+a {
+  color: #ec6f26;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  transition: color 0.2s linear;
+  cursor: pointer; }
+  /* line 52, ../app/styles/base/_typography.sass */
+  a:hover {
+    color: #f0935c;
+    text-decoration: underline; }
+
+/* line 7, ../app/styles/helpers/_helpers.sass */
+.group {
+  /* for IE 6/7 */
+  *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+  /* non-JS fallback */
+  *zoom: 1; }
+  /* line 48, ../../../.rvm/gems/ruby-1.9.3-p484/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+  .group:before, .group:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  /* line 55, ../../../.rvm/gems/ruby-1.9.3-p484/gems/singularitygs-1.1.2/stylesheets/singularitygs/helpers/_clearfix.scss */
+  .group:after {
+    clear: both; }
+
+/* line 26, ../app/styles/helpers/_helpers.sass */
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  width: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important; }
+
+/* line 43, ../app/styles/helpers/_helpers.sass */
+.unhide {
+  width: auto;
+  clip: none;
+  margin: 0;
+  position: relative;
+  height: auto; }
+
+/* # Fonts
+ *
+ * We only use two fonts for text and one for prepend-icons.
+ *
+ */
+/* line 8, ../app/styles/helpers/_fonts.sass */
+.section-headline, .section-headline--split, .table--headed th, .app-headline, .page-headline, .module-headline {
+  font-family: "Sans serif";
+  font-weight: 400; }
+
+/* line 12, ../app/styles/helpers/_fonts.sass */
+.section-headline, .section-headline--split {
+  font-weight: 300; }
+
+/* line 16, ../app/styles/helpers/_fonts.sass */
+.table--headed th {
+  font-weight: 700; }
+
+/* ## Helvetica Neue
+ *
+ * ```
+ * <p>Helvetica Neue, for everything else.</p>
+ * ```
+ */
+/* line 28, ../app/styles/helpers/_fonts.sass */
+html {
+  font-family: "Helvetica Neue", "Sans serif"; }
+
+/* line 33, ../app/styles/helpers/_fonts.sass */
+[class*="icon"][class*="--big"], [class*="prepend-icon"][class*="--big"]:before, input[type=radio]:after, input[type=checkbox]:after, [data-icon], .icon, .icon--negative, [class*="prepend-icon__"]:before, .invalid__message:before {
+  font-family: "youriconfont";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 1em;
+  line-height: 1.5em;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* line 46, ../app/styles/helpers/_fonts.sass */
+[class*="icon"][class*="--big"], [class*="prepend-icon"][class*="--big"]:before, input[type=radio]:after, input[type=checkbox]:after {
+  font-size: 2em;
+  line-height: 1.5em; }
+
+/* line 50, ../app/styles/helpers/_fonts.sass */
+[data-icon] {
+  content: attr(data-icon);
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left; }
+
+/* line 56, ../app/styles/helpers/_fonts.sass */
+.icon, .icon--negative {
+  outline: none; }
+
+/* line 60, ../app/styles/helpers/_fonts.sass */
+.icon--negative {
+  color: #ec2f17;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  transition: color 0.2s linear; }
+  /* line 64, ../app/styles/helpers/_fonts.sass */
+  .icon--negative:hover {
+    color: #b12311; }
+
+/* line 67, ../app/styles/helpers/_fonts.sass */
+[class*="prepend-icon__"]:before {
+  margin-right: 0.5625em; }
+
+/* # Headlines
+ *
+ * Headlines are used to being areas of content. There are three basic types:
+ */
+/* ## Main Headline
+ *
+ * Main headlines are to be used as the headline for the entire app. They exist
+ * outside of the content pane.
+ *
+ * ```
+ * <h1 class="app-headline">Main Headline</h1>
+ * ```
+ */
+/* line 18, ../app/styles/elements/_headlines.sass */
+.app-headline {
+  display: block;
+  font-size: 2em;
+  line-height: 1.5em;
+  color: #3f3e44;
+  text-transform: capitalize;
+  margin-top: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  margin-bottom: 0.75em;
+  float: left;
+  max-width: 593px;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+/* ## Page Headline
+ *
+ * Page headlines are to be used as the headline for a given page. They exist
+ * inside of the content pane, typically at the top.
+ *
+ * ```
+ * <h2 class="page-headline">Page Headline</h2>
+ * ```
+ */
+/* line 41, ../app/styles/elements/_headlines.sass */
+.page-headline {
+  font-size: 1.75em;
+  line-height: 1.71429em;
+  color: #3f3e44;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  margin-bottom: 0.85714em; }
+
+/* ## Section Headline
+ *
+ * Section headlines are to be used as the headline for a given section. They
+ * exist inside of a page, and pages can have multiple section headlines.
+ *
+ * ```
+ * <h3 class="section-headline">Section Headline</h3>
+ * ```
+ */
+/* line 60, ../app/styles/elements/_headlines.sass */
+.section-headline {
+  display: block;
+  font-size: 1.5em;
+  line-height: 2em;
+  color: #656469;
+  margin-top: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  margin-bottom: 1em; }
+
+/* line 67, ../app/styles/elements/_headlines.sass */
+.section-headline--split {
+  width: 100%;
+  box-sizing: content-box;
+  border-style: solid;
+  border-width: 0.04167em;
+  padding: 4.95833em;
+  margin-left: -1em;
+  margin-right: -1em;
+  padding-left: 0.95em;
+  padding-right: 0.95em;
+  margin-top: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  margin-bottom: 0em;
+  border-color: #dddddd;
+  background: #ededed;
+  font-size: 1.5em;
+  line-height: 2em; }
+
+/* ## Module Headline
+ *
+ * Module headlines are to be used as the headline for a given module. They
+ * exist inside of a section, and sections can have multiple module headlines.
+ *
+ * ```
+ * <h3 class="module-headline">Module Headline</h3>
+ * ```
+ */
+/* line 90, ../app/styles/elements/_headlines.sass */
+.module-headline {
+  font-size: 1.3125em;
+  line-height: 2.28571em;
+  color: #656469; }
+
+/* # Lists
+ *
+ * standard, untreated list
+ *
+ * ```
+ * <ol class="list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ol>
+ * ```
+ *
+ * ```
+ * <ul class="list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ul>
+ * ```
+ */
+/* ## Bare List
+ *
+ * standard, untreated list
+ *
+ * ```
+ * <ul class="bare-list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ul>
+ * ```
+ */
+/* line 34, ../app/styles/elements/_lists.sass */
+.bare-list, .line-list, .tabs, .actions-list, .data__value--group {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  /* line 38, ../app/styles/elements/_lists.sass */
+  .bare-list > li, .line-list > li, .tabs > li, .actions-list > li, .data__value--group > li {
+    margin: 0;
+    padding: 0; }
+
+/* ## Line List
+ *
+ * List items in a line
+ *
+ * ```
+ * <ul class="line-list">
+ * 	<li>Item</li>
+ * 	<li>Item</li>
+ *</ul>
+ * ```
+ */
+/* line 58, ../app/styles/elements/_lists.sass */
+.line-list > li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline; }
+
+/* ## Tabs
+ *
+ * Tabs are equal-width horizontal layouts.
+ *
+ * ```
+ * <ul class="tabs">
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 1</a>
+ * 	</li>
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 2</a>
+ * 	</li>
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 3</a>
+ * 	</li>
+ * 	<li class="tabs__item">
+ * 		<a href="#" class="tabs__action">Tab 4</a>
+ * 	</li>
+ * </ul>
+ * ```
+ */
+/* line 84, ../app/styles/elements/_lists.sass */
+.tabs {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  overflow: hidden; }
+
+/* line 91, ../app/styles/elements/_lists.sass */
+.tabs__item {
+  text-align: center;
+  display: block;
+  margin-bottom: 0.375em; }
+  @media (min-width: 420px) {
+    /* line 91, ../app/styles/elements/_lists.sass */
+    .tabs__item {
+      display: table-cell; } }
+
+/* line 98, ../app/styles/elements/_lists.sass */
+.tabs__action {
+  display: block; }
+
+/* line 102, ../app/styles/elements/_lists.sass */
+.actions-list {
+  text-align: center; }
+  /* line 106, ../app/styles/elements/_lists.sass */
+  .actions-list button {
+    width: 100%; }
+
+/* # Forms
+ *
+ * Forms encompass any inputs in any arrangement.
+ *
+ * ## Labels
+ *
+ * Labels describe what you're expecting a user to give you. They should always
+ * be followed by an input.
+ *
+ * ## Inputs
+ *
+ * Inputs are editable fields that users can put data into. They should always
+ * have a placeholder, label, and validation.
+ * ```
+ * <label class="data__label">Amount of money to donate</label>
+ * <input type="text" placeholder="100" class="data__value" />
+ * ```
+ */
+/* line 21, ../app/styles/elements/_forms.sass */
+label {
+  display: block;
+  color: #f0935c;
+  margin-bottom: 0.375em; }
+  /* line 25, ../app/styles/elements/_forms.sass */
+  label:after {
+    content: ":"; }
+
+/* line 28, ../app/styles/elements/_forms.sass */
+.label--muted {
+  color: #9f9ea1; }
+
+/* line 31, ../app/styles/elements/_forms.sass */
+input, textarea, input[type=search], .textbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+  border-style: solid;
+  border-width: 0.0625em;
+  padding: 0.3125em;
+  border-color: #dddddd;
+  color: #3f3e44;
+  -webkit-transition: border-color 0.2s linear;
+  -moz-transition: border-color 0.2s linear;
+  -o-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear; }
+  /* line 38, ../app/styles/elements/_forms.sass */
+  input:focus, input:hover, textarea:focus, textarea:hover, input[type=search]:focus, input[type=search]:hover, .textbox:focus, .textbox:hover {
+    outline: 0;
+    border-color: #00b19c; }
+  /* line 41, ../app/styles/elements/_forms.sass */
+  input[disabled], textarea[disabled], input[type=search][disabled], .textbox[disabled] {
+    border-color: #dddddd;
+    background: #f7f7f7; }
+  /* line 44, ../app/styles/elements/_forms.sass */
+  input[invalid], textarea[invalid], input[type=search][invalid], .textbox[invalid] {
+    background: #fef4f3;
+    border-color: #ec2f17;
+    color: #76170b; }
+    /* line 48, ../app/styles/elements/_forms.sass */
+    input[invalid]:focus, input[invalid]:hover, textarea[invalid]:focus, textarea[invalid]:hover, input[type=search][invalid]:focus, input[type=search][invalid]:hover, .textbox[invalid]:focus, .textbox[invalid]:hover {
+      background: #fef4f3;
+      border-color: #ec2f17;
+      color: #76170b; }
+
+/* line 58, ../app/styles/elements/_forms.sass */
+[class*=form-inputs] > [invalid] > input {
+  margin-bottom: 0.75em; }
+
+/* line 61, ../app/styles/elements/_forms.sass */
+.invalid__message {
+  display: block;
+  color: #ec2f17; }
+  /* line 64, ../app/styles/elements/_forms.sass */
+  .invalid__message:before {
+    margin-right: 0.5625em;
+    content: "\e60b"; }
+
+/* line 69, ../app/styles/elements/_forms.sass */
+textarea, input[type=textarea] {
+  width: 17em; }
+
+/* line 72, ../app/styles/elements/_forms.sass */
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0; }
+
+/* ## Text
+ * ```
+ * <label class="data__label">Text Input</label>
+ * <input class="data__value" type="text" placeholder="Enter some text"/>
+ * ```
+ */
+/* ## Number
+ * ```
+ * <label class="data__label">Number Input</label>
+ * <input class="data__value" type="number" placeholder="99"/>
+ * ```
+ */
+/* line 93, ../app/styles/elements/_forms.sass */
+input[type=number] {
+  width: 6em; }
+
+/* ## Radio
+ * ```
+ * <label class="data__label">Radio Input</label>
+ * <ul class="data__value--group">
+ * 	<li><label class="data__label">Choice 1</label><input class="data__value" type="radio" name="radio-demo" value="1" /></li>
+ * 	<li><label class="data__label">Choice 2</label><input class="data__value" type="radio" name="radio-demo" value="2" /></li>
+ * 	<li><label class="data__label">Choice 3</label><input class="data__value" type="radio" name="radio-demo" value="3" /></li>
+ * </ul>
+ * ```
+ */
+/* line 108, ../app/styles/elements/_forms.sass */
+.data__value--group {
+  border-style: solid #dddddd;
+  border-width: 0.0625em;
+  padding: 1.4375em;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  -o-border-radius: 0.25em;
+  border-radius: 0.25em;
+  margin: 0 1em; }
+  /* line 114, ../app/styles/elements/_forms.sass */
+  .data__value--group > li {
+    margin-bottom: 0.75em; }
+    /* line 116, ../app/styles/elements/_forms.sass */
+    .data__value--group > li:last-of-type {
+      margin-bottom: 0em; }
+
+/* line 121, ../app/styles/elements/_forms.sass */
+input[type=radio] {
+  background: white;
+  width: 2em;
+  height: 2em;
+  position: relative;
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  -ms-border-radius: 10em;
+  -o-border-radius: 10em;
+  border-radius: 10em; }
+  /* line 127, ../app/styles/elements/_forms.sass */
+  input[type=radio]:after {
+    font-size: 2.375em;
+    line-height: 1.26316em;
+    position: absolute;
+    top: -0.4em;
+    left: 0.09em;
+    content: "●";
+    color: rgba(0, 177, 156, 0);
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -o-transition: color 0.2s linear;
+    transition: color 0.2s linear; }
+  /* line 137, ../app/styles/elements/_forms.sass */
+  input[type=radio]:checked:after {
+    color: #00b19c; }
+
+/* ## Checkbox
+ * ```
+ * <p>Choose any number of these options.</p>
+ *
+ * <ul class="data__value--group">
+ * 	<li><label class="data__label">Choice 1</label><input class="data__value" type="checkbox" name="checkbox-demo" value="1" /></li>
+ * 	<li><label class="data__label">Choice 2</label><input class="data__value" type="checkbox" name="checkbox-demo" value="2" /></li>
+ * 	<li><label class="data__label">Choice 3</label><input class="data__value" type="checkbox" name="checkbox-demo" value="3" /></li>
+ * </ul>
+ * ```
+ */
+/* line 153, ../app/styles/elements/_forms.sass */
+input[type=checkbox] {
+  vertical-align: text-top;
+  background: white;
+  width: 2em;
+  height: 2em;
+  position: relative; }
+  /* line 159, ../app/styles/elements/_forms.sass */
+  input[type=checkbox]:after {
+    font-size: 2.375em;
+    line-height: 1.26316em;
+    position: absolute;
+    top: -0.33em;
+    content: "\e608";
+    color: rgba(0, 177, 156, 0);
+    -webkit-transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -o-transition: color 0.2s linear;
+    transition: color 0.2s linear; }
+  /* line 168, ../app/styles/elements/_forms.sass */
+  input[type=checkbox]:checked:after {
+    color: #00b19c; }
+
+/* ## Select
+ * ```
+ * <label class="data__label">Select Input</label>
+ * <div class="data__value select__container">
+ * 	<select class="select__list">
+ * 		<option>Select an option</option>
+ * 		<option value="1">Option 1</option>
+ * 		<option value="2">Option 2</option>
+ * 	</select>
+ * </div>
+ * ```
+ */
+/* line 226, ../app/styles/elements/_forms.sass */
+.select__list {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-top: 0em;
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
+  margin-bottom: 0em;
+  max-width: 100%; }
+
+/* line 232, ../app/styles/elements/_forms.sass */
+select[multiple] {
+  height: 3.75em;
+  width: 100%; }
+
+/* ## Date
+ * ```
+ * <label class="data__label">Date Input</label>
+ * <input class="data__value" type="date" placeholder="Choose a date"/>
+ * ```
+ */
+/* ## Time
+ * ```
+ * <label class="data__label">Time Input</label>
+ * <input class="data__value" type="time" placeholder="Choose a time"/>
+ * ```
+ */
+/* ## Text Area
+ * ```
+ * <label class="data__label">Text Area Input</label>
+ * <input class="data__value" type="textarea" placeholder="Enter a bunch of text"/>
+ * ```
+ */
+/* line 259, ../app/styles/elements/_forms.sass */
+.form__section {
+  margin-bottom: 1.5em; }
+
+/* # Tables
+ * Tables can get pretty crazy. Take a look at this example to see all of the
+ * helper classes Scales gives you and how to use them:
+ *
+ *```
+ * <table class="table--bordered table--striped">
+ * 	<colgroup>
+ * 		<col class="col20">
+ * 		<col class="col30">
+ * 		<col class="col10">
+ * 		<col>
+ * 	</colgroup>
+ * 	<thead>
+ * 		<tr>
+ * 			<th colspan="3">Foo</th>
+ * 			<th>Bar</th>
+ * 		</tr>
+ * 		<tr>
+ * 			<th>Lorem</th>
+ * 			<th>Ipsum</th>
+ * 			<th>Dolor</th>
+ * 			<th>Sit</th>
+ * 		</tr>
+ * 	</thead>
+ * 	<tbody>
+ * 		<tr>
+ * 			<th rowspan="3">Sit</th>
+ * 			<td>Dolor</td>
+ * 			<td class="table__item--numerical">03.788</td>
+ * 			<td>Lorem</td>
+ * 		</tr>
+ * 		<tr>
+ * 			<td>Dolor</td>
+ * 			<td class="table__item--numerical">32.210</td>
+ * 			<td>Lorem</td>
+ * 		</tr>
+ * 		<tr>
+ * 			<td>Dolor</td>
+ * 			<td class="table__item--numerical">47.797</td>
+ * 			<td>Lorem</td>
+ * 		</tr>
+ * 		<tr>
+ * 			<th rowspan="2">Sit</th>
+ * 			<td>Dolor</td>
+ * 			<td class="table__item--numerical">09.640</td>
+ * 			<td>Lorem</td>
+ * 		</tr>
+ * 		<tr>
+ * 			<td>Dolor</td>
+ * 			<td class="table__item--numerical">12.117</td>
+ * 			<td>Lorem</td>
+ * 		</tr>
+ * 	</tbody>
+ * </table>
+ */
+/* line 58, ../app/styles/elements/_tables.sass */
+table {
+  width: 100%; }
+
+/* line 61, ../app/styles/elements/_tables.sass */
+th,
+td {
+  padding: 0 0.625em;
+  margin-top: 0em;
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
+  margin-bottom: 0em;
+  text-align: left; }
+
+/* line 72, ../app/styles/elements/_tables.sass */
+[colspan] {
+  text-align: center; }
+
+/* line 75, ../app/styles/elements/_tables.sass */
+[colspan="1"] {
+  text-align: left; }
+
+/* line 78, ../app/styles/elements/_tables.sass */
+[rowspan] {
+  vertical-align: middle; }
+
+/* line 81, ../app/styles/elements/_tables.sass */
+[rowspan="1"] {
+  vertical-align: top; }
+
+/* line 84, ../app/styles/elements/_tables.sass */
+.table__item--numerical {
+  text-align: right; }
+
+/* line 87, ../app/styles/elements/_tables.sass */
+.table__item--action {
+  text-align: center; }
+
+/* line 95, ../app/styles/elements/_tables.sass */
+.t5 {
+  width: 5%; }
+
+/* line 98, ../app/styles/elements/_tables.sass */
+.t10 {
+  width: 10%; }
+
+/* line 101, ../app/styles/elements/_tables.sass */
+.t12 {
+  width: 12.5%; }
+
+/* line 105, ../app/styles/elements/_tables.sass */
+.t15 {
+  width: 15%; }
+
+/* line 108, ../app/styles/elements/_tables.sass */
+.t20 {
+  width: 20%; }
+
+/* line 111, ../app/styles/elements/_tables.sass */
+.t25 {
+  width: 25%; }
+
+/* line 115, ../app/styles/elements/_tables.sass */
+.t30 {
+  width: 30%; }
+
+/* line 118, ../app/styles/elements/_tables.sass */
+.t33 {
+  width: 33.333%; }
+
+/* line 122, ../app/styles/elements/_tables.sass */
+.t35 {
+  width: 35%; }
+
+/* line 125, ../app/styles/elements/_tables.sass */
+.t37 {
+  width: 37.5%; }
+
+/* line 129, ../app/styles/elements/_tables.sass */
+.t40 {
+  width: 40%; }
+
+/* line 132, ../app/styles/elements/_tables.sass */
+.t45 {
+  width: 45%; }
+
+/* line 135, ../app/styles/elements/_tables.sass */
+.t50 {
+  width: 50%; }
+
+/* line 139, ../app/styles/elements/_tables.sass */
+.t55 {
+  width: 55%; }
+
+/* line 142, ../app/styles/elements/_tables.sass */
+.t60 {
+  width: 60%; }
+
+/* line 145, ../app/styles/elements/_tables.sass */
+.t62 {
+  width: 62.5%; }
+
+/* line 149, ../app/styles/elements/_tables.sass */
+.t65 {
+  width: 65%; }
+
+/* line 152, ../app/styles/elements/_tables.sass */
+.t66 {
+  width: 66.666%; }
+
+/* line 156, ../app/styles/elements/_tables.sass */
+.t70 {
+  width: 70%; }
+
+/* line 159, ../app/styles/elements/_tables.sass */
+.t75 {
+  width: 75%; }
+
+/* line 163, ../app/styles/elements/_tables.sass */
+.t80 {
+  width: 80%; }
+
+/* line 166, ../app/styles/elements/_tables.sass */
+.t85 {
+  width: 85%; }
+
+/* line 169, ../app/styles/elements/_tables.sass */
+.t87 {
+  width: 87.5%; }
+
+/* line 173, ../app/styles/elements/_tables.sass */
+.t90 {
+  width: 90%; }
+
+/* line 176, ../app/styles/elements/_tables.sass */
+.t95 {
+  width: 95%; }
+
+/* ## Bordered tables
+ *
+ * This uses Compass Vertical Rhythm's "rhythm-borders" to apply borders and whitespace equally
+ * to all sides.
+ */
+/* line 187, ../app/styles/elements/_tables.sass */
+.table--bordered th, .table--headed th,
+.table--bordered td,
+.table--headed td {
+  border-style: solid;
+  border-width: 0.0625em;
+  padding: 1.4375em;
+  border-color: #dddddd; }
+  /* line 191, ../app/styles/elements/_tables.sass */
+  .table--bordered th:empty, .table--headed th:empty,
+  .table--bordered td:empty,
+  .table--headed td:empty {
+    border: none; }
+
+/* line 198, ../app/styles/elements/_tables.sass */
+.table--striped tbody tr, .table--headed tbody tr {
+  background-color: #f2f2f2; }
+/* line 200, ../app/styles/elements/_tables.sass */
+.table--striped tbody tr:nth-of-type(odd), .table--headed tbody tr:nth-of-type(odd) {
+  background-color: #e5e5e5; }
+
+/* line 207, ../app/styles/elements/_tables.sass */
+.table--headed th, .table--headed td {
+  margin-top: 0em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  margin-bottom: 0em; }
+/* line 209, ../app/styles/elements/_tables.sass */
+.table--headed th {
+  color: white; }
+/* line 212, ../app/styles/elements/_tables.sass */
+.table--headed thead, .table--headed tfoot {
+  border-top-style: solid;
+  border-top-width: 0.0625em;
+  padding-top: 0.6875em;
+  border-bottom-style: solid;
+  border-bottom-width: 0.0625em;
+  padding-bottom: 0.6875em;
+  border-color: #3f3e44;
+  background: #3f3e44; }
+
+/* line 217, ../app/styles/elements/_tables.sass */
+.table__container {
+  -moz-border-radius-topleft: 16px;
+  -webkit-border-top-left-radius: 16px;
+  border-top-left-radius: 16px;
+  -moz-border-radius-topright: 16px;
+  -webkit-border-top-right-radius: 16px;
+  border-top-right-radius: 16px;
+  background-clip: padding-box;
+  overflow-x: scroll;
+  margin-bottom: 1.5em; }
+
+/* line 2, ../app/styles/helpers/_helpers.sass */
+html {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(216, 216, 216, 0.5)), color-stop(6.77966%, rgba(216, 216, 216, 0.5)), color-stop(6.77966%, rgba(216, 216, 216, 0.25)), color-stop(8.47458%, rgba(216, 216, 216, 0.25)), color-stop(8.47458%, rgba(216, 216, 216, 0.5)), color-stop(15.25424%, rgba(216, 216, 216, 0.5)), color-stop(15.25424%, rgba(216, 216, 216, 0.25)), color-stop(16.94915%, rgba(216, 216, 216, 0.25)), color-stop(16.94915%, rgba(216, 216, 216, 0.5)), color-stop(23.72881%, rgba(216, 216, 216, 0.5)), color-stop(23.72881%, rgba(216, 216, 216, 0.25)), color-stop(25.42373%, rgba(216, 216, 216, 0.25)), color-stop(25.42373%, rgba(216, 216, 216, 0.5)), color-stop(32.20339%, rgba(216, 216, 216, 0.5)), color-stop(32.20339%, rgba(216, 216, 216, 0.25)), color-stop(33.89831%, rgba(216, 216, 216, 0.25)), color-stop(33.89831%, rgba(216, 216, 216, 0.5)), color-stop(40.67797%, rgba(216, 216, 216, 0.5)), color-stop(40.67797%, rgba(216, 216, 216, 0.25)), color-stop(42.37288%, rgba(216, 216, 216, 0.25)), color-stop(42.37288%, rgba(216, 216, 216, 0.5)), color-stop(49.15254%, rgba(216, 216, 216, 0.5)), color-stop(49.15254%, rgba(216, 216, 216, 0.25)), color-stop(50.84746%, rgba(216, 216, 216, 0.25)), color-stop(50.84746%, rgba(216, 216, 216, 0.5)), color-stop(57.62712%, rgba(216, 216, 216, 0.5)), color-stop(57.62712%, rgba(216, 216, 216, 0.25)), color-stop(59.32203%, rgba(216, 216, 216, 0.25)), color-stop(59.32203%, rgba(216, 216, 216, 0.5)), color-stop(66.10169%, rgba(216, 216, 216, 0.5)), color-stop(66.10169%, rgba(216, 216, 216, 0.25)), color-stop(67.79661%, rgba(216, 216, 216, 0.25)), color-stop(67.79661%, rgba(216, 216, 216, 0.5)), color-stop(74.57627%, rgba(216, 216, 216, 0.5)), color-stop(74.57627%, rgba(216, 216, 216, 0.25)), color-stop(76.27119%, rgba(216, 216, 216, 0.25)), color-stop(76.27119%, rgba(216, 216, 216, 0.5)), color-stop(83.05085%, rgba(216, 216, 216, 0.5)), color-stop(83.05085%, rgba(216, 216, 216, 0.25)), color-stop(84.74576%, rgba(216, 216, 216, 0.25)), color-stop(84.74576%, rgba(216, 216, 216, 0.5)), color-stop(91.52542%, rgba(216, 216, 216, 0.5)), color-stop(91.52542%, rgba(216, 216, 216, 0.25)), color-stop(93.22034%, rgba(216, 216, 216, 0.25)), color-stop(93.22034%, rgba(216, 216, 216, 0.5)), color-stop(100%, rgba(216, 216, 216, 0.5)));
+  background-image: -webkit-linear-gradient(left, rgba(216, 216, 216, 0.5), rgba(216, 216, 216, 0.5) 6.77966%, rgba(216, 216, 216, 0.25) 6.77966%, rgba(216, 216, 216, 0.25) 8.47458%, rgba(216, 216, 216, 0.5) 8.47458%, rgba(216, 216, 216, 0.5) 15.25424%, rgba(216, 216, 216, 0.25) 15.25424%, rgba(216, 216, 216, 0.25) 16.94915%, rgba(216, 216, 216, 0.5) 16.94915%, rgba(216, 216, 216, 0.5) 23.72881%, rgba(216, 216, 216, 0.25) 23.72881%, rgba(216, 216, 216, 0.25) 25.42373%, rgba(216, 216, 216, 0.5) 25.42373%, rgba(216, 216, 216, 0.5) 32.20339%, rgba(216, 216, 216, 0.25) 32.20339%, rgba(216, 216, 216, 0.25) 33.89831%, rgba(216, 216, 216, 0.5) 33.89831%, rgba(216, 216, 216, 0.5) 40.67797%, rgba(216, 216, 216, 0.25) 40.67797%, rgba(216, 216, 216, 0.25) 42.37288%, rgba(216, 216, 216, 0.5) 42.37288%, rgba(216, 216, 216, 0.5) 49.15254%, rgba(216, 216, 216, 0.25) 49.15254%, rgba(216, 216, 216, 0.25) 50.84746%, rgba(216, 216, 216, 0.5) 50.84746%, rgba(216, 216, 216, 0.5) 57.62712%, rgba(216, 216, 216, 0.25) 57.62712%, rgba(216, 216, 216, 0.25) 59.32203%, rgba(216, 216, 216, 0.5) 59.32203%, rgba(216, 216, 216, 0.5) 66.10169%, rgba(216, 216, 216, 0.25) 66.10169%, rgba(216, 216, 216, 0.25) 67.79661%, rgba(216, 216, 216, 0.5) 67.79661%, rgba(216, 216, 216, 0.5) 74.57627%, rgba(216, 216, 216, 0.25) 74.57627%, rgba(216, 216, 216, 0.25) 76.27119%, rgba(216, 216, 216, 0.5) 76.27119%, rgba(216, 216, 216, 0.5) 83.05085%, rgba(216, 216, 216, 0.25) 83.05085%, rgba(216, 216, 216, 0.25) 84.74576%, rgba(216, 216, 216, 0.5) 84.74576%, rgba(216, 216, 216, 0.5) 91.52542%, rgba(216, 216, 216, 0.25) 91.52542%, rgba(216, 216, 216, 0.25) 93.22034%, rgba(216, 216, 216, 0.5) 93.22034%, rgba(216, 216, 216, 0.5) 100%);
+  background-image: -moz-linear-gradient(left, rgba(216, 216, 216, 0.5), rgba(216, 216, 216, 0.5) 6.77966%, rgba(216, 216, 216, 0.25) 6.77966%, rgba(216, 216, 216, 0.25) 8.47458%, rgba(216, 216, 216, 0.5) 8.47458%, rgba(216, 216, 216, 0.5) 15.25424%, rgba(216, 216, 216, 0.25) 15.25424%, rgba(216, 216, 216, 0.25) 16.94915%, rgba(216, 216, 216, 0.5) 16.94915%, rgba(216, 216, 216, 0.5) 23.72881%, rgba(216, 216, 216, 0.25) 23.72881%, rgba(216, 216, 216, 0.25) 25.42373%, rgba(216, 216, 216, 0.5) 25.42373%, rgba(216, 216, 216, 0.5) 32.20339%, rgba(216, 216, 216, 0.25) 32.20339%, rgba(216, 216, 216, 0.25) 33.89831%, rgba(216, 216, 216, 0.5) 33.89831%, rgba(216, 216, 216, 0.5) 40.67797%, rgba(216, 216, 216, 0.25) 40.67797%, rgba(216, 216, 216, 0.25) 42.37288%, rgba(216, 216, 216, 0.5) 42.37288%, rgba(216, 216, 216, 0.5) 49.15254%, rgba(216, 216, 216, 0.25) 49.15254%, rgba(216, 216, 216, 0.25) 50.84746%, rgba(216, 216, 216, 0.5) 50.84746%, rgba(216, 216, 216, 0.5) 57.62712%, rgba(216, 216, 216, 0.25) 57.62712%, rgba(216, 216, 216, 0.25) 59.32203%, rgba(216, 216, 216, 0.5) 59.32203%, rgba(216, 216, 216, 0.5) 66.10169%, rgba(216, 216, 216, 0.25) 66.10169%, rgba(216, 216, 216, 0.25) 67.79661%, rgba(216, 216, 216, 0.5) 67.79661%, rgba(216, 216, 216, 0.5) 74.57627%, rgba(216, 216, 216, 0.25) 74.57627%, rgba(216, 216, 216, 0.25) 76.27119%, rgba(216, 216, 216, 0.5) 76.27119%, rgba(216, 216, 216, 0.5) 83.05085%, rgba(216, 216, 216, 0.25) 83.05085%, rgba(216, 216, 216, 0.25) 84.74576%, rgba(216, 216, 216, 0.5) 84.74576%, rgba(216, 216, 216, 0.5) 91.52542%, rgba(216, 216, 216, 0.25) 91.52542%, rgba(216, 216, 216, 0.25) 93.22034%, rgba(216, 216, 216, 0.5) 93.22034%, rgba(216, 216, 216, 0.5) 100%);
+  background-image: -o-linear-gradient(left, rgba(216, 216, 216, 0.5), rgba(216, 216, 216, 0.5) 6.77966%, rgba(216, 216, 216, 0.25) 6.77966%, rgba(216, 216, 216, 0.25) 8.47458%, rgba(216, 216, 216, 0.5) 8.47458%, rgba(216, 216, 216, 0.5) 15.25424%, rgba(216, 216, 216, 0.25) 15.25424%, rgba(216, 216, 216, 0.25) 16.94915%, rgba(216, 216, 216, 0.5) 16.94915%, rgba(216, 216, 216, 0.5) 23.72881%, rgba(216, 216, 216, 0.25) 23.72881%, rgba(216, 216, 216, 0.25) 25.42373%, rgba(216, 216, 216, 0.5) 25.42373%, rgba(216, 216, 216, 0.5) 32.20339%, rgba(216, 216, 216, 0.25) 32.20339%, rgba(216, 216, 216, 0.25) 33.89831%, rgba(216, 216, 216, 0.5) 33.89831%, rgba(216, 216, 216, 0.5) 40.67797%, rgba(216, 216, 216, 0.25) 40.67797%, rgba(216, 216, 216, 0.25) 42.37288%, rgba(216, 216, 216, 0.5) 42.37288%, rgba(216, 216, 216, 0.5) 49.15254%, rgba(216, 216, 216, 0.25) 49.15254%, rgba(216, 216, 216, 0.25) 50.84746%, rgba(216, 216, 216, 0.5) 50.84746%, rgba(216, 216, 216, 0.5) 57.62712%, rgba(216, 216, 216, 0.25) 57.62712%, rgba(216, 216, 216, 0.25) 59.32203%, rgba(216, 216, 216, 0.5) 59.32203%, rgba(216, 216, 216, 0.5) 66.10169%, rgba(216, 216, 216, 0.25) 66.10169%, rgba(216, 216, 216, 0.25) 67.79661%, rgba(216, 216, 216, 0.5) 67.79661%, rgba(216, 216, 216, 0.5) 74.57627%, rgba(216, 216, 216, 0.25) 74.57627%, rgba(216, 216, 216, 0.25) 76.27119%, rgba(216, 216, 216, 0.5) 76.27119%, rgba(216, 216, 216, 0.5) 83.05085%, rgba(216, 216, 216, 0.25) 83.05085%, rgba(216, 216, 216, 0.25) 84.74576%, rgba(216, 216, 216, 0.5) 84.74576%, rgba(216, 216, 216, 0.5) 91.52542%, rgba(216, 216, 216, 0.25) 91.52542%, rgba(216, 216, 216, 0.25) 93.22034%, rgba(216, 216, 216, 0.5) 93.22034%, rgba(216, 216, 216, 0.5) 100%);
+  background-image: linear-gradient(left, rgba(216, 216, 216, 0.5), rgba(216, 216, 216, 0.5) 6.77966%, rgba(216, 216, 216, 0.25) 6.77966%, rgba(216, 216, 216, 0.25) 8.47458%, rgba(216, 216, 216, 0.5) 8.47458%, rgba(216, 216, 216, 0.5) 15.25424%, rgba(216, 216, 216, 0.25) 15.25424%, rgba(216, 216, 216, 0.25) 16.94915%, rgba(216, 216, 216, 0.5) 16.94915%, rgba(216, 216, 216, 0.5) 23.72881%, rgba(216, 216, 216, 0.25) 23.72881%, rgba(216, 216, 216, 0.25) 25.42373%, rgba(216, 216, 216, 0.5) 25.42373%, rgba(216, 216, 216, 0.5) 32.20339%, rgba(216, 216, 216, 0.25) 32.20339%, rgba(216, 216, 216, 0.25) 33.89831%, rgba(216, 216, 216, 0.5) 33.89831%, rgba(216, 216, 216, 0.5) 40.67797%, rgba(216, 216, 216, 0.25) 40.67797%, rgba(216, 216, 216, 0.25) 42.37288%, rgba(216, 216, 216, 0.5) 42.37288%, rgba(216, 216, 216, 0.5) 49.15254%, rgba(216, 216, 216, 0.25) 49.15254%, rgba(216, 216, 216, 0.25) 50.84746%, rgba(216, 216, 216, 0.5) 50.84746%, rgba(216, 216, 216, 0.5) 57.62712%, rgba(216, 216, 216, 0.25) 57.62712%, rgba(216, 216, 216, 0.25) 59.32203%, rgba(216, 216, 216, 0.5) 59.32203%, rgba(216, 216, 216, 0.5) 66.10169%, rgba(216, 216, 216, 0.25) 66.10169%, rgba(216, 216, 216, 0.25) 67.79661%, rgba(216, 216, 216, 0.5) 67.79661%, rgba(216, 216, 216, 0.5) 74.57627%, rgba(216, 216, 216, 0.25) 74.57627%, rgba(216, 216, 216, 0.25) 76.27119%, rgba(216, 216, 216, 0.5) 76.27119%, rgba(216, 216, 216, 0.5) 83.05085%, rgba(216, 216, 216, 0.25) 83.05085%, rgba(216, 216, 216, 0.25) 84.74576%, rgba(216, 216, 216, 0.5) 84.74576%, rgba(216, 216, 216, 0.5) 91.52542%, rgba(216, 216, 216, 0.25) 91.52542%, rgba(216, 216, 216, 0.25) 93.22034%, rgba(216, 216, 216, 0.5) 93.22034%, rgba(216, 216, 216, 0.5) 100%); }
+
+/* line 4, ../app/styles/helpers/_helpers.sass */
+body {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, #d8d8d8), color-stop(5%, rgba(216, 216, 216, 0)));
+  background-image: -webkit-linear-gradient(bottom, #d8d8d8 5%, rgba(216, 216, 216, 0) 5%);
+  background-image: -moz-linear-gradient(bottom, #d8d8d8 5%, rgba(216, 216, 216, 0) 5%);
+  background-image: -o-linear-gradient(bottom, #d8d8d8 5%, rgba(216, 216, 216, 0) 5%);
+  background-image: linear-gradient(bottom, #d8d8d8 5%, rgba(216, 216, 216, 0) 5%);
+  -webkit-background-size: 100% 1.5em;
+  -moz-background-size: 100% 1.5em;
+  -o-background-size: 100% 1.5em;
+  background-size: 100% 1.5em;
+  background-position: left top; }

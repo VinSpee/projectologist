@@ -34,15 +34,18 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('styles', function() {
-	return gulp.src(sources.styles)
+	gulp.src(sources.styles)
 		.pipe(plugins.compass({
-			config_file: './config.rb',
+			sass: './app/styles/',
+			css: './build/styles/',
+			image: './images/',
+			font: './fonts/'
 		}))
 		.pipe(plugins.autoprefixer("last 2 version", "> 1%"))
-		.pipe(plugins.csslint({
-			'compatible-vendor-prefixes': false
-		}))
-		.pipe(plugins.csslint.reporter())
+		//.pipe(plugins.csslint({
+			//'compatible-vendor-prefixes': false
+		//}))
+		//.pipe(plugins.csslint.reporter())
 		.pipe(gulp.env.production ? plugins.csso() : plugins.util.noop())
 		.pipe(gulp.dest('build/styles'))
 		.pipe(plugins.livereload(server))
@@ -115,4 +118,4 @@ gulp.task('server', function(callback) {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['scripts', 'styles', 'html']);
-gulp.task('serve', ['watch', 'server', 'default']);
+gulp.task('serve', ['watch', 'server']);
