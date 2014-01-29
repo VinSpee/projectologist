@@ -1,17 +1,19 @@
-var gulp     = require('gulp');
-var connect  = require('connect');
-var http     = require('http');
-var open     = require('open');
-var lr       = require('tiny-lr');
-var plugins  = require("gulp-load-plugins")();
+var gulp      = require('gulp');
+var connect   = require('connect');
+var http      = require('http');
+var open      = require('open');
+var lr        = require('tiny-lr');
+var coffeeify = require('coffeeify');
+var plugins   = require("gulp-load-plugins")();
 var server = lr();
 
 var sources = {
-	styles    : './app/styles/**/*.sass',
-	scripts   : './app/scripts/**/*.coffee',
-	images    : './app/images/**',
-	html      : './app/*.html',
-	templates : './app/templates/**/*.hbs'
+	styles       : './app/styles/**/*.sass',
+	scripts      : './app/scripts/**/*.coffee',
+	main_scripts : './app/scripts/app.coffee',
+	images       : './app/images/**',
+	html         : './app/*.html',
+	templates    : './app/templates/**/*.hbs'
 };
 
 var dests = {
@@ -23,14 +25,20 @@ var dests = {
 };
 
 gulp.task('scripts', function() {
-	return gulp.src(sources.scripts)
+	return gulp.src(sources.main_scripts, {read: false})
 		.pipe(plugins.coffeelint())
 		.pipe(plugins.coffeelint.reporter())
-		.pipe(plugins.coffee().on('error', plugins.util.log))
-		.pipe(plugins.jshint())
-		.pipe(plugins.jshint.reporter('default'))
-		.pipe(gulp.env.production ? plugins.uglify() : plugins.util.noop())
-		.pipe(gulp.dest(dests.scripts));
+		.pipe(plugins.browserify({
+			transform: ['coffeeify'],
+			extensions: ['.coffee'],
+			debug: !gulp.env.production
+		}))
+		.pipe(plugins.concat('app.js'))
+		//.pipe(gulp.env.production ? plugins.uglify() : plugins.util.noop())
+		//.pipe(plugins.coffee().on('error', plugins.util.log))
+		.pipe(gulp.dest(dests.scripts))
+		.pipe(plugins.livereload(server))
+		.pipe(plugins.notify({ message: 'Scripts task complete' }));
 });
 
 gulp.task('styles', function() {

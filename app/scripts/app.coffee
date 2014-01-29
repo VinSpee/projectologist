@@ -1,1 +1,3 @@
-console.log "foo"
+Dude = require "./dude"
+
+do Dude.start

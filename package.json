@@ -27,7 +27,10 @@
     "gulp-uglify": "~0.1.0",
     "connect": "~2.12.0",
     "open": "0.0.4",
-    "gulp-notify": "~0.3.4-2"
+    "gulp-notify": "~0.3.4-2",
+    "gulp-browserify": "~0.4.0",
+    "gulp-concat": "~2.1.7",
+    "coffeeify": "~0.5.2"
   },
   "engines": {
     "node": ">=0.8"
