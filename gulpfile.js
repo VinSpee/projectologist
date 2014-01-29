@@ -34,8 +34,7 @@ gulp.task('scripts', function() {
 			debug: !gulp.env.production
 		}))
 		.pipe(plugins.concat('app.js'))
-		//.pipe(gulp.env.production ? plugins.uglify() : plugins.util.noop())
-		//.pipe(plugins.coffee().on('error', plugins.util.log))
+		.pipe(gulp.env.production ? plugins.uglify() : plugins.util.noop())
 		.pipe(gulp.dest(dests.scripts))
 		.pipe(plugins.livereload(server))
 		.pipe(plugins.notify({ message: 'Scripts task complete' }));
