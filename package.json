@@ -30,7 +30,8 @@
     "gulp-notify": "~0.3.4-2",
     "gulp-browserify": "~0.4.0",
     "gulp-concat": "~2.1.7",
-    "coffeeify": "~0.5.2"
+    "coffeeify": "~0.5.2",
+    "gulp-clean": "~0.2.4"
   },
   "engines": {
     "node": ">=0.8"

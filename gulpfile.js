@@ -91,6 +91,11 @@ gulp.task('watch', function () {
 	gulp.watch(sources.html, ['lr-server', 'html']);
 });
 
+gulp.task('clean', function() {
+	return gulp.src([dests.scripts, dests.styles, dests.images, dests.html, dests.templates], {read: false})
+		.pipe(plugins.clean());
+});
+
 gulp.task('server', function(callback) {
 	var devApp, devServer, devAddress, devHost, url, log=plugins.util.log, colors=plugins.util.colors;
 
@@ -126,4 +131,4 @@ gulp.task('server', function(callback) {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['scripts', 'styles', 'html']);
-gulp.task('serve', ['watch', 'server']);
+gulp.task('serve', ['default', 'watch', 'server']);
