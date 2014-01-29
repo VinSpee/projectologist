@@ -36,6 +36,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
 	gulp.src(sources.styles)
 		.pipe(plugins.compass({
+			require: ['singularitygs', 'modular-scale', 'toolkit', 'breakpoint'],
 			sass: './app/styles/',
 			css: './build/styles/',
 			image: './images/',

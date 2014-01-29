@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "gulp": "latest",
-    "gulp-compass": "~1.0.8",
+    "gulp-compass": "~1.1.0",
     "gulp-autoprefixer": "0.0.4",
     "gulp-coffee": "~1.2.5",
     "gulp-htmlhint": "0.0.7",
