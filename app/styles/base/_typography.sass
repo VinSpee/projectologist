@@ -25,30 +25,3 @@ $base-line-height : $base-font-size * 1.5
 // Modular Scale
 $base-size: $base-font-size $base-line-height
 $ratio: fourth()
-
-html
-	@extend %font__text
-	color: nth($shade, 2)
-
-/*
- * ## Paragraphs
- *
- * ```
- * <p>This is a paragraph. It has some words and some sentences. Deal with it. This is a paragraph. It has some words and some sentences. Deal with it.</p>
- * <p>This is a paragraph. It has some words and some sentences. Deal with it.</p>
- * ```
- */
-
-p
-	+rhythm(0, 0, 0, 1)
-	max-width: 40em
-	&:last-child
-		+trailer(0)
-
-a
-	color: nth($neutral, 3)
-	+transition(color .2s linear)
-	cursor: pointer
-	&:hover
-		color: nth($neutral, 4)
-		text-decoration: underline
