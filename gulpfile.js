@@ -36,8 +36,7 @@ gulp.task('scripts', function() {
 		.pipe(plugins.concat('app.js'))
 		.pipe(gulp.env.production ? plugins.uglify() : plugins.util.noop())
 		.pipe(gulp.dest(dests.scripts))
-		.pipe(plugins.livereload(server))
-		.pipe(plugins.notify({ message: 'Scripts task complete' }));
+		.pipe(plugins.livereload(server));
 });
 
 gulp.task('styles', function() {
@@ -56,8 +55,7 @@ gulp.task('styles', function() {
 		//.pipe(plugins.csslint.reporter())
 		.pipe(gulp.env.production ? plugins.csso() : plugins.util.noop())
 		.pipe(gulp.dest('build/styles'))
-		.pipe(plugins.livereload(server))
-		.pipe(plugins.notify({ message: 'Styles task complete' }));
+		.pipe(plugins.livereload(server));
 });
 
 gulp.task('html', function() {
@@ -76,19 +74,17 @@ gulp.task('images', function() {
 		.pipe(gulp.dest('build/images'));
 });
 
-gulp.task('lr-server', function() {
-	server.listen(35729, function(err){
-		if(err) return console.log(err);
-	});
+gulp.task('lr-server', function (cb) {
+  server.listen(35729, cb);
 });
 
 // Rerun the task when a file changes
 gulp.task('watch', function () {
-	gulp.watch(sources.styles, ['lr-server', 'styles']);
-	gulp.watch(sources.scripts, ['lr-server', 'scripts']);
-	gulp.watch(sources.images, ['lr-server', 'images']);
-	//gulp.watch(sources.templates, ['lr-server', 'templates']);
-	gulp.watch(sources.html, ['lr-server', 'html']);
+	gulp.watch(sources.styles, ['styles']);
+	gulp.watch(sources.scripts, ['scripts']);
+	gulp.watch(sources.images, ['images']);
+	//gulp.watch(sources.templates, ['templates']);
+	gulp.watch(sources.html, ['html']);
 });
 
 gulp.task('clean', function() {
@@ -131,4 +127,4 @@ gulp.task('server', function(callback) {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['scripts', 'styles', 'html']);
-gulp.task('serve', ['default', 'watch', 'server']);
+gulp.task('serve', ['lr-server', 'default', 'watch', 'server']);
