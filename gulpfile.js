@@ -1,11 +1,26 @@
-var gulp      = require('gulp');
-var connect   = require('connect');
-var http      = require('http');
-var open      = require('open');
-var lr        = require('tiny-lr');
-var coffeeify = require('coffeeify');
-var plugins   = require("gulp-load-plugins")();
-var server = lr();
+var gulp       = require('gulp');
+var connect    = require('connect');
+var http       = require('http');
+var open       = require('open');
+var coffeeify  = require('coffeeify');
+var plugins    = require("gulp-load-plugins")();
+var refresh    = require('gulp-livereload');
+var lrserver   = require('tiny-lr')();
+var express    = require('express');
+var livereload = require('connect-livereload');
+
+//config
+var livereloadport = 35729;
+var serverport     = 5000;
+var server         = express();
+
+//Add livereload middleware before static-middleware
+server.use(livereload({
+	port: livereloadport
+}));
+
+//Add static-middleware
+server.use(express.static('./build'));
 
 var sources = {
 	styles       : './app/styles/**/*.sass',
@@ -36,7 +51,7 @@ gulp.task('scripts', function() {
 		.pipe(plugins.concat('app.js'))
 		.pipe(gulp.env.production ? plugins.uglify() : plugins.util.noop())
 		.pipe(gulp.dest(dests.scripts))
-		.pipe(plugins.livereload(server));
+		.pipe(refresh(lrserver));
 });
 
 gulp.task('styles', function() {
@@ -49,13 +64,13 @@ gulp.task('styles', function() {
 			font: './fonts/'
 		}))
 		.pipe(plugins.autoprefixer("last 2 version", "> 1%"))
-		//.pipe(plugins.csslint({
-			//'compatible-vendor-prefixes': false
-		//}))
-		//.pipe(plugins.csslint.reporter())
+		/*.pipe(plugins.csslint({
+			'compatible-vendor-prefixes': false
+		}))
+		.pipe(plugins.csslint.reporter()) */
 		.pipe(gulp.env.production ? plugins.csso() : plugins.util.noop())
 		.pipe(gulp.dest('build/styles'))
-		.pipe(plugins.livereload(server));
+		.pipe(refresh(lrserver));
 });
 
 gulp.task('html', function() {
@@ -64,18 +79,16 @@ gulp.task('html', function() {
 		.pipe(plugins.htmlhint.reporter())
 		//.pipe(plugins.usemin)
 		.pipe(plugins.htmlmin({collapseWhitespace: true}))
-		.pipe(gulp.dest('build/'));
+		.pipe(gulp.dest('build/'))
+		.pipe(refresh(lrserver));
 });
 
 gulp.task('images', function() {
 	return gulp.src(sources.images)
 		.pipe(plugins.imagemin())
 		.pipe(plugins.svgmin)
-		.pipe(gulp.dest('build/images'));
-});
-
-gulp.task('lr-server', function (cb) {
-  server.listen(35729, cb);
+		.pipe(gulp.dest('build/images'))
+		.pipe(refresh(lrserver));
 });
 
 // Rerun the task when a file changes
@@ -92,39 +105,13 @@ gulp.task('clean', function() {
 		.pipe(plugins.clean());
 });
 
-gulp.task('server', function(callback) {
-	var devApp, devServer, devAddress, devHost, url, log=plugins.util.log, colors=plugins.util.colors;
-
-	devApp = connect()
-		.use(connect.logger('dev'))
-		.use(connect.static('build'));
-
-	// change port and hostname to something static if you prefer
-	devServer = http.createServer(devApp).listen(0 /*, hostname*/);
-
-	devServer.on('error', function(error) {
-		log(colors.underline(colors.red('ERROR'))+' Unable to start server!');
-		callback(error); // we couldn't start the server, so report it and quit gulp
-	});
-
-	devServer.on('listening', function() {
-		devAddress = devServer.address();
-		devHost = devAddress.address === '0.0.0.0' ? 'localhost' : devAddress.address;
-		url = 'http://' + devHost + ':' + devAddress.port + '/index.html';
-
-		log('');
-		log('Started dev server at '+colors.magenta(url));
-		if(gulp.env.open) {
-			log('Opening dev server URL in browser');
-			open(url);
-		} else {
-			log(colors.gray('(Run with --open to automatically open URL on startup)'));
-		}
-		log('');
-		callback(); // we're done with this task for now
-	});
+gulp.task('server', function() {
+	//Set up your static fileserver, which serves files in the build dir
+	server.listen(serverport);
+	//Set up your livereload server
+	lrserver.listen(livereloadport);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'styles', 'html']);
-gulp.task('serve', ['lr-server', 'default', 'watch', 'server']);
+gulp.task('build', ['scripts', 'styles', 'html']);
+gulp.task('default', ['build', 'server', 'watch']);
