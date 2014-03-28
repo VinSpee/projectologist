@@ -3,6 +3,7 @@ var connect    = require('connect');
 var http       = require('http');
 var open       = require('open');
 var coffeeify  = require('coffeeify');
+var env        = require('minimist');
 var plugins    = require("gulp-load-plugins")();
 var refresh    = require('gulp-livereload');
 var lrserver   = require('tiny-lr')();
@@ -46,16 +47,16 @@ gulp.task('scripts', function() {
 		.pipe(plugins.browserify({
 			transform: ['coffeeify'],
 			extensions: ['.coffee'],
-			debug: !gulp.env.production
+			debug: !env.production
 		}))
 		.pipe(plugins.concat('app.js'))
-		.pipe(gulp.env.production ? plugins.uglify() : plugins.util.noop())
+		.pipe(env.production ? plugins.uglify() : plugins.util.noop())
 		.pipe(gulp.dest(dests.scripts))
 		.pipe(refresh(lrserver));
 });
 
 gulp.task('styles', function() {
-	gulp.src(sources.styles)
+	return gulp.src(sources.styles)
 		.pipe(plugins.compass({
 			require: ['singularitygs', 'modular-scale', 'toolkit', 'breakpoint'],
 			sass: './app/styles/',
@@ -68,7 +69,7 @@ gulp.task('styles', function() {
 			'compatible-vendor-prefixes': false
 		}))
 		.pipe(plugins.csslint.reporter()) */
-		.pipe(gulp.env.production ? plugins.csso() : plugins.util.noop())
+		.pipe(env.production ? plugins.csso() : plugins.util.noop())
 		.pipe(gulp.dest('build/styles'))
 		.pipe(refresh(lrserver));
 });
