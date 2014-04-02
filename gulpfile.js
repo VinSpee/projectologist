@@ -1,27 +1,18 @@
-var gulp       = require('gulp');
-var connect    = require('connect');
-var http       = require('http');
-var open       = require('open');
-var coffeeify  = require('coffeeify');
-var env        = require('minimist');
-var plugins    = require("gulp-load-plugins")();
-var refresh    = require('gulp-livereload');
-var lrserver   = require('tiny-lr')();
-var express    = require('express');
-var livereload = require('connect-livereload');
+var coffeeify = require('coffeeify');
+var env       = require('minimist');
+var express   = require('express');
+var gulp      = require('gulp');
+var http      = require('http');
+var instant   = require('instant');
+var open      = require('open');
+var plugins   = require("gulp-load-plugins")();
 
 //config
-var livereloadport = 35729;
 var serverport     = 5000;
 var server         = express();
 
-//Add livereload middleware before static-middleware
-server.use(livereload({
-	port: livereloadport
-}));
-
 //Add static-middleware
-server.use(express.static('./build'));
+server.use(instant(__dirname + '/build'));
 
 var sources = {
 	styles       : './app/styles/**/*.sass',
@@ -51,8 +42,7 @@ gulp.task('scripts', function() {
 		}))
 		.pipe(plugins.concat('app.js'))
 		.pipe(env.production ? plugins.uglify() : plugins.util.noop())
-		.pipe(gulp.dest(dests.scripts))
-		.pipe(refresh(lrserver));
+		.pipe(gulp.dest(dests.scripts));
 });
 
 gulp.task('styles', function() {
@@ -70,8 +60,7 @@ gulp.task('styles', function() {
 		}))
 		.pipe(plugins.csslint.reporter()) */
 		.pipe(env.production ? plugins.csso() : plugins.util.noop())
-		.pipe(gulp.dest('build/styles'))
-		.pipe(refresh(lrserver));
+		.pipe(gulp.dest('./build/styles'));
 });
 
 gulp.task('html', function() {
@@ -80,16 +69,14 @@ gulp.task('html', function() {
 		.pipe(plugins.htmlhint.reporter())
 		//.pipe(plugins.usemin)
 		.pipe(plugins.htmlmin({collapseWhitespace: true}))
-		.pipe(gulp.dest('build/'))
-		.pipe(refresh(lrserver));
+		.pipe(gulp.dest('build/'));
 });
 
 gulp.task('images', function() {
 	return gulp.src(sources.images)
 		.pipe(plugins.imagemin())
 		.pipe(plugins.svgmin)
-		.pipe(gulp.dest('build/images'))
-		.pipe(refresh(lrserver));
+		.pipe(gulp.dest('build/images'));
 });
 
 // Rerun the task when a file changes
@@ -109,10 +96,8 @@ gulp.task('clean', function() {
 gulp.task('server', function() {
 	//Set up your static fileserver, which serves files in the build dir
 	server.listen(serverport);
-	//Set up your livereload server
-	lrserver.listen(livereloadport);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('build', ['scripts', 'styles', 'html']);
+gulp.task('build', ['html', 'styles', 'scripts']);
 gulp.task('default', ['build', 'server', 'watch']);
