@@ -1,0 +1,33 @@
+{
+  "name": "projectologist",
+  "version": "2.1.0",
+  "homepage": "https://github.com/VinSpee/projectologist",
+  "authors": [
+    "Vince Speelman <v@vinspee.me>"
+  ],
+  "description": "Projectologist takes care of your shit for you.",
+  "main": "app/index.html",
+  "keywords": [
+    "project",
+    "boilerplate",
+    "gulp",
+    "project"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "modular-scale": "~2.0.5",
+    "singularity": "~1.2.0",
+    "singularity-extras": "https://github.com/swisstofu/Singularity-extras.git#1.x.x"
+  },
+  "resolutions": {
+    "singularity": "~1.2.0"
+  }
+}

@@ -1,18 +1,8 @@
-var coffeeify = require('coffeeify');
-var env       = require('minimist');
-var express   = require('express');
-var gulp      = require('gulp');
-var http      = require('http');
-var instant   = require('instant');
-var open      = require('open');
-var plugins   = require("gulp-load-plugins")();
-
-//config
-var serverport     = 5000;
-var server         = express();
-
-//Add static-middleware
-server.use(instant(__dirname + '/build'));
+var browserSync = require('browser-sync');
+var coffeeify   = require('coffeeify');
+var env         = require('minimist')(process.argv.slice(2));
+var gulp        = require('gulp');
+var plugins     = require("gulp-load-plugins")();
 
 var sources = {
 	styles       : './app/styles/**/*.sass',
@@ -31,6 +21,11 @@ var dests = {
 	templates : './build/templates/'
 };
 
+var handleError = function(err) {
+	console.log(err.toString());
+	this.emit('end');
+};
+
 gulp.task('scripts', function() {
 	return gulp.src(sources.main_scripts, {read: false})
 		.pipe(plugins.coffeelint())
@@ -47,18 +42,17 @@ gulp.task('scripts', function() {
 
 gulp.task('styles', function() {
 	return gulp.src(sources.styles)
-		.pipe(plugins.compass({
-			require: ['singularitygs', 'modular-scale', 'toolkit', 'breakpoint'],
-			sass: './app/styles/',
-			css: './build/styles/',
-			image: './images/',
-			font: './fonts/'
+		.pipe(plugins.rubySass({
+			trace: true,
+			loadPath: ['bower_components/modular-scale/stylesheets', 'bower_components/singularity/stylesheets','bower_components/sass-toolkit/stylesheets','bower_components/singularity-extras/stylesheets'],
+			bundleExec: true
 		}))
+		.on('error', handleError)
 		.pipe(plugins.autoprefixer("last 2 version", "> 1%"))
-		/*.pipe(plugins.csslint({
-			'compatible-vendor-prefixes': false
-		}))
-		.pipe(plugins.csslint.reporter()) */
+		//.pipe(plugins.csslint({
+		//	'compatible-vendor-prefixes': false
+		//}))
+		//.pipe(plugins.csslint.reporter())
 		.pipe(env.production ? plugins.csso() : plugins.util.noop())
 		.pipe(gulp.dest('./build/styles'));
 });
@@ -76,7 +70,20 @@ gulp.task('images', function() {
 	return gulp.src(sources.images)
 		.pipe(plugins.imagemin())
 		.pipe(plugins.svgmin)
+		.on('error', handleError)
 		.pipe(gulp.dest('build/images'));
+});
+
+gulp.task('browser-sync', ['watch'], function() {
+	browserSync.init([
+		dests.styles + '*.css',
+		dests.scripts + '*.js',
+		dests.html + '*.html'
+	], {
+		server: {
+			baseDir: './build'
+		}
+	});
 });
 
 // Rerun the task when a file changes
@@ -93,11 +100,6 @@ gulp.task('clean', function() {
 		.pipe(plugins.clean());
 });
 
-gulp.task('server', function() {
-	//Set up your static fileserver, which serves files in the build dir
-	server.listen(serverport);
-});
-
 // The default task (called when you run `gulp` from cli)
 gulp.task('build', ['html', 'styles', 'scripts']);
-gulp.task('default', ['build', 'server', 'watch']);
+gulp.task('default', ['build', 'browser-sync']);

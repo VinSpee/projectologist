@@ -1,14 +1,7 @@
-@import compass
-@import compass/reset
 @import modular-scale
-@import toolkit
 @import singularitygs
-@import breakpoint
+@import toolkit/kickstart
 
-*
-  +box-sizing(border-box)
-
-//Base
 @import base/typography
 
 //Helpers
@@ -29,4 +22,4 @@
 //Shame
 @import shame
 
-+debug-rhythm()
++background-grid($color: shade(white, 15%))
