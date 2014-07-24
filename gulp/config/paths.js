@@ -6,24 +6,22 @@
 var paths = {};
 
 paths.source = {
-  app         : './client/',
-  fonts       : './client/bower_components/leveleleven-builder-component-library/fonts/**/*',
-  images      : './client/images/**',
-  main_style  : './client/styles/main.sass',
-  scripts     : './client/scripts/**/*.{js,jsx}',
-  scripts_dir : './client/scripts/',
-  main_script : './client/scripts/main.jsx',
-  styles      : './client/styles/**/*.{scss,sass}',
-  styleguide  : './client/styleguide/*.html',
-  index       : './client/index.html',
-  data        : './client/scripts/json/**/*.json'
+  app         : './app/',
+  images      : './app/images/**',
+  main_style  : './app/styles/main.styl',
+  scripts     : './app/scripts/**/*.{js,jsx,coffee}',
+  scripts_dir : './app/scripts/',
+  main_script : './app/scripts/main.jsx',
+  styles      : './app/styles/**/*.{styl}',
+  styleguide  : './app/styleguide/*.html',
+  index       : './app/index.html',
+  views       : './app/*.html'
 };
 
 paths.dest = {
   app     : './build/',
   scripts : './build/scripts/',
   styles  : 'build/styles/',
-  fonts   : './build/fonts/',
   images  : './build/images/',
 };
 

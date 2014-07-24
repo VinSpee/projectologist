@@ -4,9 +4,8 @@ gulp.task('build', function(cb){
   var seq  = require('run-sequence');
   seq(
     'clean',
-    'jshint',
-    ['browserify', 'sass', 'views', 'fonts', 'images'],
-    'styleguide',
+    ['browserify', 'styles', 'views'],
+    //'styleguide',
     cb
   );
 });
