@@ -15,12 +15,17 @@
 		<!-- Add your site or application content here -->
 		<div class="page">
 
-			<header role="banner">
-				<h1>This is is a page heading</h1>
+			<header class="app-header" role="banner">
+				<h1 class="app-headline">Is it my turn to bring beer?</h1>
 			</header>
 
 			<main role="main">
 				<p>main content</p>
+				<div data-component="events-list" class="Calendar">
+				</div>
+				<section class="ThisWeek">
+					<h1>This Week: <span class="ThisWeek-Participant">Vince</span> &amp; <span class="ThisWeek-Participant">Kevin</span></h1>
+				</section>
 			</main>
 
 			<footer role="contentinfo">
@@ -30,13 +35,9 @@
 		</div>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-		<script>
-				var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-				g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-				s.parentNode.insertBefore(g,s)}(document,'script'));
-		</script>
 
 		<script src="scripts/app.js"></script>
+		<script type="text/javascript" src="//use.typekit.net/qgj3xbe.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</body>
 </html>

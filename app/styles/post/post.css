@@ -1,0 +1,20 @@
+.Post {
+}
+
+.Post-Title {
+	font-size: 3rem;
+	background: var(--red);
+	color: var(--white);
+	padding: 1rem 1rem;
+	box-shadow: inset .5rem 0 0 0 var(--red-dark);
+	margin-bottom: 0
+}
+
+.Post-Content {
+}
+
+.Post-Content > p:first-of-type {
+	background: var(--red);
+	margin-top: 0;
+	padding-top: 1rem;
+}

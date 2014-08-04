@@ -8,7 +8,7 @@ gulp.task('browserSync', function() {
 		[
 			paths.dest.scripts,
 			paths.dest.images,
-			paths.dest.scripts,
+			paths.dest.styles,
 			paths.dest.app
 		], {
 		server: {

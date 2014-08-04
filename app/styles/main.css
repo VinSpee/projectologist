@@ -1,0 +1,37 @@
+:root {
+	/* font names */
+	/* [font-style font-variant font-weight] font-size/line-height font-family; */
+	--font-brandon  : 700 18px/1.65 "brandon-grotesque", Sans-serif;
+	--font-tisa     : 400 18px/1.65 "ff-tisa-web-pro", Serif;
+	--font-headline : var(--font-brandon);
+	--font-body     : var(--font-tisa);
+
+	/* color names */
+	--white       : #ffffff;
+	--black       : #404040;
+	--red         : #EC433F;
+	--green       : #CAD946;
+	--yellow      : #F4D832;
+	--blue        : #4AC2CF;
+	--red-dark    : #901C20;
+	--green-dark  : #929E21;
+	--yellow-dark : #BAA600;
+	--blue-dark   : #446067;
+
+	/* theme vars */
+	--base-background: var(--white);
+	--base-color: var(--black);
+	--base-font: var(--font-tisa);
+}
+
+@import "./Post/post.css";
+
+html {
+	background: var(--base-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-transform: uppercase;
+	font: var(--font-headline);
+	line-height: 1;
+}

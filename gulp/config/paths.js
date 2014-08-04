@@ -8,21 +8,22 @@ var paths = {};
 paths.source = {
   app         : './app/',
   images      : './app/images/**',
-  main_style  : './app/styles/main.styl',
+  main_style  : './app/styles/main.css',
   scripts     : './app/scripts/**/*.{js,jsx,coffee}',
   scripts_dir : './app/scripts/',
-  main_script : './app/scripts/main.jsx',
-  styles      : './app/styles/**/*.{styl}',
+  main_script : './app/scripts/app.coffee',
+  styles      : './app/styles/**/*.css',
   styleguide  : './app/styleguide/*.html',
+  templates   : './*.hbs',
   index       : './app/index.html',
   views       : './app/*.html'
 };
 
 paths.dest = {
-  app     : './build/',
-  scripts : './build/scripts/',
-  styles  : 'build/styles/',
-  images  : './build/images/',
+  app     : './assets/',
+  scripts : './assets/scripts/',
+  styles  : './assets/styles/',
+  images  : './assets/images/',
 };
 
 module.exports = paths;

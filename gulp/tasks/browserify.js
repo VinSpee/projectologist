@@ -22,16 +22,11 @@ gulp.task('browserify',function(){
 	return gulp.src(paths.source.main_script, {read: false})
 		.pipe(plumber(handleErrors))
 		.pipe(browserify({
-			transform: ['reactify', 'debowerify'],
-			alias: [
-				'./client/scripts/mixins/element-query.js:element-query',
-				'./client/scripts/utils/loggers.js:loggers',
-				'./client/scripts/utils/url.js:url'
-			],
+			transform: ['cjsxify', 'debowerify'],
 			debug: true,
-			extensions: ['.jsx', '.js', '.coffee']
+			extensions: ['.cjsx', '.js', '.coffee']
 		}))
-		.pipe(rename('main.js'))
+		.pipe(rename('app.js'))
 		.pipe(size())
 		.pipe(gulp.dest(paths.dest.scripts))
 		.pipe(browserSync.reload({stream:true}));
