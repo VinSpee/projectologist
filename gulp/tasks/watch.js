@@ -15,7 +15,6 @@ gulp.task('watch', function() {
 		gulp.watch(paths.source.styles,     ['styles']);
 		gulp.watch(paths.source.images,     ['images']);
 		gulp.watch(paths.source.views,      ['views']);
-		gulp.watch(paths.source.styleguide, ['styleguide']);
 		gulp.watch(paths.source.scripts,    ['browserify']);
 	});
 

@@ -1,8 +1,19 @@
+/*
+A simple blog post
+
+.Post                  - Base Container
+.Post - Title          - Headline
+.Post - Content        - The actual images and text
+
+Styleguide 1.0.0.
+*/
+@import "suitcss-utils";
+
 :root {
 	/* font names */
 	/* [font-style font-variant font-weight] font-size/line-height font-family; */
-	--font-brandon  : 700 18px/1.65 "brandon-grotesque", Sans-serif;
-	--font-tisa     : 400 18px/1.65 "ff-tisa-web-pro", Serif;
+	--font-brandon  : 700 18px/1 "brandon-grotesque", Sans-serif;
+	--font-tisa     : 400 18px/1.5 "ff-tisa-web-pro", Serif;
 	--font-headline : var(--font-brandon);
 	--font-body     : var(--font-tisa);
 
@@ -26,12 +37,17 @@
 
 @import "./Post/post.css";
 
+img {
+	width: 100%;
+}
+
 html {
 	background: var(--base-background);
+	color: var(--base-color);
+	font: var(--font-body);
 }
 
 h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 	font: var(--font-headline);
-	line-height: 1;
 }
