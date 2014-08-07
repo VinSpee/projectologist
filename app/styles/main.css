@@ -5,8 +5,8 @@
 	/* [font-style font-variant font-weight] font-size/line-height font-family; */
 	--font-sans     : 700 18px/1 "Helvetica Neue", Sans-serif;
 	--font-serif    : 400 18px/1.5 "Georgia", Serif;
-	--font-headline : var(--font-brandon);
-	--font-body     : var(--font-tisa);
+	--font-headline : var(--font-sans);
+	--font-body     : var(--font-serif);
 
 	/* color names */
 	--white       : #ffffff;
