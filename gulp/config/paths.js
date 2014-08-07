@@ -14,16 +14,14 @@ paths.source = {
   main_script : './app/scripts/app.js',
   styles      : './app/styles/**/*.css',
   styleguide  : './app/styleguide/*.html',
-  templates   : './*.hbs',
-  index       : './app/index.html',
   views       : './app/*.html'
 };
 
 paths.dest = {
-  app     : './assets/',
-  scripts : './assets/scripts/',
-  styles  : './assets/styles/',
-  images  : './assets/images/',
+  app     : './build/',
+  scripts : './build/scripts/',
+  styles  : './build/styles/',
+  images  : './build/images/',
 };
 
 module.exports = paths;

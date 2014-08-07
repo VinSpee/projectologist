@@ -5,8 +5,7 @@ gulp.task('build', function(cb){
 	seq(
 		'clean',
 		['browserify', 'styles', 'views'],
-		//'styleguide',
-		'ghost',
+		'watch',
 		cb
 	);
 });

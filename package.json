@@ -1,27 +1,38 @@
 {
   "name": "projectologist",
-  "version": "2.1.0",
-  "description": "At your service",
+  "version": "2.2.0",
+  "description": "He takes care of your shit for you",
+  "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^1.3.0",
-    "cjsxify": "^0.2.5",
-    "express": "^3.5.1",
-    "gulp": "latest",
-    "gulp-autoprefixer": "0.0.8",
-    "gulp-browserify": "^0.5.0",
-    "gulp-changed": "^0.4.1",
-    "gulp-clean": "^0.3.1",
-    "gulp-csso": "~0.2.1",
-    "gulp-imagemin": "^0.6.2",
-    "gulp-jshint": "^1.7.1",
-    "gulp-kss": "0.0.2",
-    "gulp-plumber": "^0.6.4",
-    "gulp-size": "^1.0.0",
-    "gulp-styledocco": "0.0.1",
-    "gulp-uglify": "^0.3.1",
-    "gulp-util": "^3.0.0",
+    "bower": "^1.2.8",
+    "bower-files": "^1.1.6",
+    "coffeeify": "^0.5.2",
+    "gulp": "^3.6.2",
+    "gulp-autoprefixer": "^0.0.4",
+    "gulp-bower": "^0.0.5",
+    "gulp-browserify": "^0.4.6",
+    "gulp-concat": "^2.1.7",
+    "gulp-csslint": "^0.1.3",
+    "gulp-csso": "^0.2.6",
+    "gulp-exec": "^2.1.0",
+    "gulp-filter": "^0.4.1",
+    "gulp-htmlhint": "^0.0.7",
+    "gulp-htmlmin": "^0.1.2",
+    "gulp-imagemin": "^0.1.5",
+    "gulp-jshint": "^1.3.4",
+    "gulp-notify": "^0.3.5-0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-size": "^0.3.1",
+    "gulp-svgmin": "^0.4.4",
+    "gulp-uglify": "^0.1.0",
+    "gulp-usemin": "^0.1.4",
+    "gulp-util": "^2.2.14",
+    "gulp-webserver": "^0.6.0",
+    "matchdep": "^0.3.0",
+    "minimist": "^0.0.8",
     "myth": "^1.1.1",
+    "open": "^0.0.4",
     "rework-deduplicate": "^0.1.1",
     "rework-inherit": "^0.2.3",
     "rework-namespace": "^0.3.0",
@@ -29,9 +40,26 @@
     "rework-plugin-ease": "^1.0.1",
     "rework-vars": "^3.1.1",
     "run-sequence": "^0.3.6",
-    "suitcss-utils": "^0.10.0"
+    "suitcss-utils": "^0.10.0",
+    "yo": "^1.1.2"
   },
-  "engines": {
-    "node": ">=0.8"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VinSpee/projectologist.git"
+  },
+  "keywords": [
+    "project",
+    "gulp",
+    "scaffold",
+    "browserify"
+  ],
+  "author": "Vince Speelman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VinSpee/projectologist/issues"
+  },
+  "homepage": "https://github.com/VinSpee/projectologist"
 }

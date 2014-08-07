@@ -6,9 +6,6 @@
 var gulp = require('gulp');
 
 gulp.task('browserify',function(){
-	var livereload   = require('gulp-livereload');
-	var lr           = require('tiny-lr');
-	var server       = lr();
 	var browserify   = require('gulp-browserify');
 	var debowerify   = require('debowerify');
 	var handleErrors = require('../util/handleErrors');
@@ -26,6 +23,5 @@ gulp.task('browserify',function(){
 		}))
 		.pipe(rename('app.js'))
 		.pipe(size())
-		.pipe(gulp.dest(paths.dest.scripts))
-		.pipe(livereload(server));
+		.pipe(gulp.dest(paths.dest.scripts));
 });

@@ -2,10 +2,6 @@ var gulp = require('gulp');
 
 gulp.task('styles', function() {
 	var handleErrors = require('../util/handleErrors');
-	var livereload   = require('gulp-livereload');
-	var lr           = require('tiny-lr');
-	var server       = lr();
-	var myth         = require('myth');
 	var paths        = require('../config/paths');
 	var plumber      = require('gulp-plumber');
 	var rename       = require('gulp-rename');
@@ -35,6 +31,5 @@ gulp.task('styles', function() {
 			dedupe(),
 			namespace(ns),
 			{sourcemap: true}))
-		.pipe(gulp.dest(paths.dest.styles))
-		.pipe(livereload(server));
+		.pipe(gulp.dest(paths.dest.styles));
 });

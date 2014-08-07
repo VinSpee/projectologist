@@ -21,20 +21,20 @@ gulp.task('styleguide', function() {
 		.pipe(styledocco({
 			out: 'build/styleguide',
 			name: 'Styleguide',
-			preprocessor: 'node_modules/'
-				rework(
-					imprt({
-						path: [
-							'./app/styles',
-							'node_modules',
-						]
-					}),
-					inherit(),
-					myth(),
-					ease(),
-					dedupe(),
-					namespace(ns),
-					{sourcemap: true}))
+			//preprocessor: 'node_modules/'
+				//rework(
+					//imprt({
+						//path: [
+							//'./app/styles',
+							//'node_modules',
+						//]
+					//}),
+					//inherit(),
+					//myth(),
+					//ease(),
+					//dedupe(),
+					//namespace(ns),
+					//{sourcemap: true}))
 			include: [paths.dest.styles + 'main.css']
 		}));
 });
