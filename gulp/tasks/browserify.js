@@ -5,9 +5,10 @@
 
 var gulp = require('gulp');
 
-gulp.task('browserify',function(){
+gulp.task('browserify', ['jshint'], function(){
 	var browserify   = require('gulp-browserify');
 	var debowerify   = require('debowerify');
+	var coffeeify    = require('coffeeify');
 	var handleErrors = require('../util/handleErrors');
 	var paths        = require('../config/paths');
 	var rename       = require('gulp-rename');
@@ -17,9 +18,9 @@ gulp.task('browserify',function(){
 	return gulp.src(paths.source.main_script, {read: false})
 		.pipe(plumber(handleErrors))
 		.pipe(browserify({
-			transform: ['debowerify'],
+			transform: ['debowerify', 'coffeeify'],
 			debug: true,
-			extensions: ['.js']
+			extensions: ['.js', '.coffee']
 		}))
 		.pipe(rename('app.js'))
 		.pipe(size())

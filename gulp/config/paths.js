@@ -7,9 +7,11 @@ var paths = {};
 
 paths.source = {
   app         : './app/',
-  images      : './app/images/**',
+  images      : './app/images/**/*.{jpg,gif,png,svg,webp}',
+  sprites     : './app/sprites/**/*.svg',
+  fonts       : './app/fonts/**/*.{svg,eot,ttf,woff}',
   main_style  : './app/styles/main.css',
-  scripts     : './app/scripts/**/*.js',
+  scripts     : './app/scripts/**/*.{js, coffee}',
   scripts_dir : './app/scripts/',
   main_script : './app/scripts/app.js',
   styles      : './app/styles/**/*.css',
@@ -22,6 +24,7 @@ paths.dest = {
   scripts : './build/scripts/',
   styles  : './build/styles/',
   images  : './build/images/',
+  fonts   : './build/fonts/',
 };
 
 module.exports = paths;

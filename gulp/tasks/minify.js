@@ -44,4 +44,3 @@ gulp.task('minify', function(){
 		.pipe(size())
 		.pipe(pages.restore());
 });
-

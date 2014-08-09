@@ -4,7 +4,7 @@ gulp.task('build', function(cb){
 	var seq  = require('run-sequence');
 	seq(
 		'clean',
-		['browserify', 'styles', 'views'],
+		['images', 'icon-font', 'browserify', 'styles', 'views'],
 		'watch',
 		cb
 	);
