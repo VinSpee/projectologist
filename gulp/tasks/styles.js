@@ -7,11 +7,11 @@ gulp.task('styles', function() {
 	var rename       = require('gulp-rename');
 	var rework       = require('gulp-rework');
 	var dedupe       = require('rework-deduplicate');
-	var vars         = require('rework-vars');
 	var inherit      = require('rework-inherit');
 	var namespace    = require('rework-namespace');
 	var ease         = require('rework-plugin-ease');
 	var myth         = require('myth');
+	var suit         = require('rework-suit');
 	var imprt        = require('rework-npm');
 	var autoprefixer = require('gulp-autoprefixer');
 
@@ -19,7 +19,7 @@ gulp.task('styles', function() {
 	return gulp.src(paths.source.main_style)
 		.pipe(plumber(handleErrors))
 		.pipe(rework(
-			imprt({
+			suit({
 				path: [
 					'./app/styles',
 					'node_modules',
