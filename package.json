@@ -34,7 +34,12 @@
     "rework-vars": "^3.1.1",
     "run-sequence": "^0.3.6",
     "suitcss-base": "^0.7.0",
-    "suitcss-utils": "^0.10.0"
+    "suitcss-utils": "^0.10.0",
+    "gulp": "^3.8.7",
+    "gulp-plumber": "^0.6.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-rework": "^1.0.1",
+    "debowerify": "^0.8.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
