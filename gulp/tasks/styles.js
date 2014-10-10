@@ -28,7 +28,7 @@ gulp.task('styles', function() {
     .pipe(rework(
       svg(),
       inliner(),
-      customMedia,
+      customMedia(),
       vars(),
       calc,
       hexAlpha,
