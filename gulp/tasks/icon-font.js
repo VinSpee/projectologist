@@ -19,7 +19,7 @@ gulp.task('icon-font', function() {
       normalize: true,
       appendCodepoints: true
     })).on('codepoints', function(codepoints, options) {
-      gutil.log(gutil.colors.green(codepoints));
+      console.log(codepoints);
     })
     .pipe(gulp.dest(DEST));
 });
