@@ -1,1 +1,1 @@
-console.log('poo');
+require('./svg4everybody');

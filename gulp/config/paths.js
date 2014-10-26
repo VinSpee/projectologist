@@ -15,6 +15,7 @@ paths.source = {
   scripts_dir : './app/scripts/',
   main_script : './app/scripts/app.js',
   styles      : './app/styles/**/*.css',
+  icons_dir   : './app/styles/icon/lib/',
   styleguide  : './app/styleguide/*.html',
   views       : './app/*.html'
 };

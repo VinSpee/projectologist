@@ -1,0 +1,14 @@
+/** @define Icon; use strict */
+/*
+ * houses SVG icon styles
+ */
+
+[data-am-Icon] {
+
+}
+
+[data-am-Icon~="small"] {
+  width: 1rem;
+  height: 1rem;
+  overflow: hidden;
+}
