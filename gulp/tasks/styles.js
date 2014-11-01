@@ -1,10 +1,10 @@
 var gulp = require('gulp');
 
 gulp.task('styles', function() {
-  var handleErrors = require('../util/handleErrors');
+  var rework       = require('gulp-rework');
   var paths        = require('../config/paths');
-
-  var autoprefixer = require('gulp-autoprefixer');
+  var handleErrors = require('../util/handleErrors');
+  var plumber      = require('gulp-plumber');
   var calc         = require('rework-calc');
   var customMedia  = require('rework-custom-media');
   var inliner      = require('rework-npm');
@@ -16,20 +16,15 @@ gulp.task('styles', function() {
   var hexAlpha     = require('rework-hex-alpha');
   var fontVariant  = require('rework-font-variant');
   var namespace    = require('rework-namespace');
-  var plumber      = require('gulp-plumber');
-  var rename       = require('gulp-rename');
-  var rework       = require('gulp-rework');
-  var suit         = require('rework-suit');
-  var svg          = require('rework-svg');
+  var autoprefixer = require('gulp-autoprefixer');
 
   var ns = '';
   return gulp.src(paths.source.main_style)
     .pipe(plumber(handleErrors))
     .pipe(rework(
-      svg(),
       inliner(),
-      customMedia(),
       vars(),
+      customMedia(),
       calc,
       hexAlpha,
       color,
@@ -37,7 +32,10 @@ gulp.task('styles', function() {
       ease(),
       dedupe(),
       namespace(ns),
-      {sourcemap: true}))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest(paths.dest.styles));
+      {sourcemap: true}
+      )
+    )
+    .pipe(autoprefixer()
+    .pipe(gulp.dest(paths.dest.styles))
+  );
 });
