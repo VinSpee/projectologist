@@ -1,6 +1,6 @@
-@import "cssrecipes-defaults";
-@import "suitcss-utils";
-@import "./icon";
+@import "normalize.css/normalize.css";
+@import "cssrecipes-defaults/index.css";
+@import "./icon/index.css";
 
 :root {
 	--font-sans     : "Helvetica Neue", Sans-serif;
@@ -9,7 +9,7 @@
 	--font-body     : var(--font-serif);
 
 	/* color names */
-	--white       : #ffffff;
+	--white       : #ccc;
 	--black       : #404040;
 	--red         : #EC433F;
 	--green       : #CAD946;

@@ -4,40 +4,38 @@ gulp.task('styles', function() {
   var handleErrors = require('../util/handleErrors');
   var paths        = require('../config/paths');
 
-  var autoprefixer = require('gulp-autoprefixer');
-  var calc         = require('rework-calc');
-  var customMedia  = require('rework-custom-media');
-  var inliner      = require('rework-npm');
-  var vars         = require('rework-vars');
-  var dedupe       = require('rework-deduplicate');
-  var ease         = require('rework-plugin-ease');
-  var inherit      = require('rework-inherit');
-  var color        = require('rework-color-function');
-  var hexAlpha     = require('rework-hex-alpha');
-  var fontVariant  = require('rework-font-variant');
-  var namespace    = require('rework-namespace');
-  var plumber      = require('gulp-plumber');
-  var rename       = require('gulp-rename');
-  var rework       = require('gulp-rework');
-  var suit         = require('rework-suit');
-  var svg          = require('rework-svg');
+  var plumber          = require('gulp-plumber');
+  var sourcemaps       = require('gulp-sourcemaps');
+  var rename           = require('gulp-rename');
+  var postcss          = require('gulp-postcss');
+  var autoprefixer     = require('autoprefixer-core');
+  var calc             = require('postcss-calc');
+  var colorFunction    = require('postcss-color-function');
+  var gray             = require('postcss-color-gray');
+  var colorHexAlpha    = require('postcss-color-hex-alpha');
+  var customMedia      = require('postcss-custom-media');
+  var customProperties = require('postcss-custom-properties');
+  var fontVariant      = require('postcss-font-variant');
+  var inline           = require('postcss-import');
+  //var nested           = require('postcss-nested');
 
-  var ns = '';
   return gulp.src(paths.source.main_style)
     .pipe(plumber(handleErrors))
-    .pipe(rework(
-      svg(),
-      inliner(),
+    .pipe(sourcemaps.init())
+    .pipe(postcss([
+      inline({
+        path: ['node_modules/', 'app/styles/']
+      }),
+      //nested,
+      customProperties(),
+      calc(),
       customMedia(),
-      vars(),
-      calc,
-      hexAlpha,
-      color,
-      inherit(),
-      ease(),
-      dedupe(),
-      namespace(ns),
-      {sourcemap: true}))
-    .pipe(autoprefixer())
+      gray(),
+      colorHexAlpha(),
+      colorFunction(),
+      fontVariant(),
+      autoprefixer({ browsers: 'last 2 versions' })
+    ]))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dest.styles));
 });

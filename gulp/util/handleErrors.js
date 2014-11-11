@@ -1,6 +1,6 @@
 var handleErrors = function(err) {
   var gutil = require('gulp-util');
-  gutil.log(gutil.colors.red(err.toString));
+  console.log(err);
 };
 
 module.exports = handleErrors;
