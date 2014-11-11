@@ -23,7 +23,7 @@
 	/* theme vars */
 	--base-background: var(--white);
 	--base-color: var(--black);
-	--base-font: var(--font-serif);
+	--base-font: 18px/1.65 var(--font-serif);
 }
 
 img {
@@ -31,9 +31,5 @@ img {
 }
 
 html {
-	background: var(--base-background);
-	color: var(--base-color);
-	font-family: var(--font-body);
-	font-size: 18px;
-	line-height: 1.65;
+	font: var(--base-font);
 }

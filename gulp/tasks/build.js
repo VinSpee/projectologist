@@ -4,9 +4,8 @@ gulp.task('build', function(cb){
   var seq  = require('run-sequence');
   seq(
     'clean',
-    ['images', /*'icon-font'*/'svg-icons', 'webpack', 'styles'],
-    'views',
-    'watch',
+    ['styles', 'images', 'svg-icons', 'views'],
+    'webserver',
     cb
   );
 });

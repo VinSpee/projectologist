@@ -1,9 +1,8 @@
 var gulp = require('gulp');
 
 gulp.task('styles', function() {
-  var handleErrors = require('../util/handleErrors');
-  var paths        = require('../config/paths');
-
+  var handleErrors     = require('../util/handleErrors');
+  var paths            = require('../config/paths');
   var plumber          = require('gulp-plumber');
   var sourcemaps       = require('gulp-sourcemaps');
   var rename           = require('gulp-rename');
