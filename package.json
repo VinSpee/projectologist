@@ -44,8 +44,6 @@
     "reactify": "^0.16.0",
     "run-sequence": "^1.0.1",
     "suitcss-base": "^0.7.0",
-    "webpack": "^1.4.10",
-    "webpack-dev-server": "^1.6.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
