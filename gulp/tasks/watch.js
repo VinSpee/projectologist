@@ -8,6 +8,6 @@ gulp.task('watch', function() {
   gulp.watch(paths.source.sprites, ['svg-icons']);
   gulp.watch(paths.source.fonts,   ['fonts']);
   gulp.watch(paths.source.views,   ['views']);
-  gulp.watch(paths.source.scripts, ['webpack-dev-server']);
+  gulp.watch(paths.source.scripts, ['browserify']);
 
 });

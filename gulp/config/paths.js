@@ -11,7 +11,7 @@ paths.source = {
   sprites     : './app/sprites/**/*.svg',
   fonts       : './app/fonts/**/*.{svg,eot,ttf,woff}',
   main_style  : './app/styles/main.css',
-  scripts     : './app/scripts/**/*.{js, coffee}',
+  scripts     : './app/scripts/**/*.{js,jsx}',
   scripts_dir : './app/scripts/',
   main_script : './app/scripts/app.js',
   styles      : './app/styles/**/*.css',
