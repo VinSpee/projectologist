@@ -1,6 +1,6 @@
-@import "normalize.css/normalize.css";
-@import "cssrecipes-defaults/index.css";
-@import "./icon/index.css";
+@import "suitcss-base";
+@import "cssrecipes-defaults";
+@import "icon";
 
 :root {
 	--font-sans     : "Helvetica Neue", Sans-serif;

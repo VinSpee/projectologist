@@ -5,7 +5,6 @@ gulp.task('default', function(cb) {
   seq(
     'build',
     'webserver',
-    'watch',
     cb
   );
 });

@@ -3,26 +3,32 @@
    Bundle javascripty things with browserify!
 */
 
-var gulp = require('gulp');
+var gulp       = require('gulp');
+var gutil      = require('gulp-util');
 
-gulp.task('browserify', ['jshint'], function(){
-  var browserify   = require('gulp-browserify');
-  var debowerify   = require('debowerify');
-  var reactify     = require('reactify');
-  var handleErrors = require('../util/handleErrors');
-  var plumber      = require('gulp-plumber');
-  var paths        = require('../config/paths');
-  var rename       = require('gulp-rename');
-  var size         = require('gulp-size');
+var paths      = require('../config/paths');
 
-  return gulp.src(paths.source.main_script, {read: false})
-    .pipe(plumber(handleErrors))
-    .pipe(browserify({
-      transform: ['debowerify', 'reactify'],
-      debug: true,
-      extensions: ['.js', '.jsx']
-    }))
-    .pipe(rename('app.js'))
-    .pipe(size())
-    .pipe(gulp.dest(paths.dest.scripts));
+var source     = require('vinyl-source-stream');
+var browserify = require('browserify');
+var reactify   = require('reactify');
+var errorify   = require('errorify');
+
+gulp.task('browserify', function() {
+  var args = {};
+  args.extensions = ['.js', '.jsx'];
+  var bundler = browserify(paths.source.main_script, args);
+  bundler.plugin(errorify);
+  bundler.transform(reactify);
+  bundler.plugin(errorify);
+  function rebundle() {
+    var browserSync  = require('browser-sync');
+    var reload       = browserSync.reload;
+    return bundler.bundle()
+      .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+      .pipe(source('app.js'))
+      .pipe(gulp.dest(paths.dest.scripts))
+      .pipe(reload({stream: true, once: true}));
+  }
+  bundler.on('update', rebundle);
+  return rebundle();
 });
