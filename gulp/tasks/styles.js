@@ -16,16 +16,16 @@ gulp.task('styles', function() {
   var customProperties = require('postcss-custom-properties');
   var fontVariant      = require('postcss-font-variant');
   var inline           = require('postcss-import');
-  //var nested           = require('postcss-nested');
+  var nested           = require('postcss-nested');
 
   return gulp.src(paths.source.main_style)
     .pipe(plumber(handleErrors))
     .pipe(sourcemaps.init())
     .pipe(postcss([
       inline({
-        path: ['node_modules/', 'app/styles/']
+        path: ['app/styles/']
       }),
-      //nested,
+      nested(),
       customProperties(),
       calc(),
       customMedia(),
