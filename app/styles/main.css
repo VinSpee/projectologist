@@ -26,10 +26,6 @@
 	--base-font: 18px/1.65 var(--font-serif);
 }
 
-img {
-	width: 100%;
-}
-
 html {
 	font: var(--base-font);
 }

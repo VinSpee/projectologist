@@ -25,7 +25,7 @@ gulp.task('styles', function() {
       inline({
         path: ['app/styles/']
       }),
-      nested(),
+      nested,
       customProperties(),
       calc(),
       customMedia(),
