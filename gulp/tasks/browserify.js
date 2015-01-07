@@ -18,7 +18,7 @@ gulp.task('browserify', function() {
   args.extensions = ['.js', '.jsx'];
   var bundler = browserify(paths.source.main_script, args);
   bundler.plugin(errorify);
-  bundler.transform(reactify);
+  bundler.transform(reactify, {'es6': true});
   bundler.plugin(errorify);
   function rebundle() {
     var browserSync  = require('browser-sync');
