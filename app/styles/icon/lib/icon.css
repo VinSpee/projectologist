@@ -11,7 +11,7 @@
   --Icon-sizeGigantic : 8rem;
 }
 
-[data-am-Icon] {
+[data-am-Icon], .Icon {
   overflow: hidden;
   fill: currentColor;
   position: relative;
@@ -19,7 +19,7 @@
   line-height: 1 !important;
 }
 
-[data-am-Icon]:after {
+[data-am-Icon]:after, .Icon:after {
   content: '';
   position: absolute;
   top: 0;
@@ -28,36 +28,36 @@
   height: 100%;
 }
 
-[data-am-Icon~="tiny"] {
+[data-am-Icon~="tiny"], .Icon--tiny {
   height: var(--Icon-sizeTiny);
   width: var(--Icon-sizeTiny);
 }
 
-[data-am-Icon~="small"] {
+[data-am-Icon~="small"], .Icon--small {
   height: var(--Icon-sizeSmall);
   width: var(--Icon-sizeSmall);
 }
 
-[data-am-Icon~="medium"] {
+[data-am-Icon~="medium"], .Icon--medium {
   height: var(--Icon-sizeMedium);
   width: var(--Icon-sizeMedium);
 }
 
-[data-am-Icon~="large"] {
+[data-am-Icon~="large"], .Icon--large {
   height: var(--Icon-sizeLarge);
   width: var(--Icon-sizeLarge);
 }
 
-[data-am-Icon~="gigantic"] {
+[data-am-Icon~="gigantic"], .Icon--gigantic {
   height: var(--Icon-sizeGigantic);
   width: var(--Icon-sizeGigantic);
 }
 
-[data-am-Icon~="action"] {
+[data-am-Icon~="action"], .Icon--action {
   cursor: pointer;
 }
 
-a[data-am-Icon~="action"] {
+a[data-am-Icon~="action"], a .Icon--action {
   color: inherit;
   text-decoration: none;
 }
