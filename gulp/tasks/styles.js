@@ -4,6 +4,7 @@ gulp.task('styles', function() {
   var handleErrors     = require('../util/handleErrors');
   var paths            = require('../config/paths');
   var plumber          = require('gulp-plumber');
+  var reload           = require('browser-sync').reload;
   var sourcemaps       = require('gulp-sourcemaps');
   var rename           = require('gulp-rename');
   var postcss          = require('gulp-postcss');
@@ -36,5 +37,6 @@ gulp.task('styles', function() {
       autoprefixer({ browsers: 'last 2 versions' })
     ]))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.dest.styles));
+    .pipe(gulp.dest(paths.dest.styles))
+    .pipe(reload({stream:true}));
 });
