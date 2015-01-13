@@ -1,8 +1,7 @@
 var gulp = require('gulp');
 
-gulp.task('webserver', function() {
+gulp.task('webserver', ['watch'], function() {
   var browserSync  = require('browser-sync');
-  var reload       = browserSync.reload;
   var paths        = require('../config/paths');
 
   browserSync({
@@ -15,10 +14,5 @@ gulp.task('webserver', function() {
     port: 1337,
     open: false
   });
-
-  gulp.watch(paths.source.styles , reload);
-  gulp.watch(paths.source.images , reload);
-  gulp.watch(paths.source.sprites, reload);
-  gulp.watch(paths.source.views  , reload);
 
 });
