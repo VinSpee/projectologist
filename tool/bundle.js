@@ -5,5 +5,5 @@ module.exports = function(t) {
 	var b = browserify();
 	b.add(t.src(t.path[0]));
 
-	t.build(b.bundle(), t.source(t.path[1]), t.dest());
+	t.build(b.bundle(), t.src(t.path[1]), t.dest());
 }
