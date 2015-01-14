@@ -3,7 +3,9 @@
   "version": "3.0.0",
   "description": "He takes care of your shit for you",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "chronic": "^0.2.3"
+  },
   "devDependencies": {
     "autoprefixer-core": "^4.0.1",
     "browser-sync": "^1.7.2",
@@ -14,6 +16,7 @@
     "errorify": "0.0.1",
     "gulp": "^3.8.10",
     "gulp-changed": "^1.0.0",
+    "gulp-concat": "^2.4.3",
     "gulp-filter": "^2.0.0",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.0.0",
@@ -43,7 +46,8 @@
     "reactify": "^0.17.1",
     "run-sequence": "^1.0.2",
     "suitcss-base": "^0.8.0",
-    "vinyl-source-stream": "^1.0.0"
+    "vinyl-source-stream": "^1.0.0",
+    "vinyl-transform": "^1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
