@@ -1,0 +1,9 @@
+@import "dude";
+
+:root {
+  --red: red;
+}
+
+html {
+  background: var(--red);
+}
