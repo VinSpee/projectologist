@@ -38,6 +38,6 @@ module.exports = function(t) {
       fontVariant(),
       autoprefixer({ browsers: 'last 2 versions' })
     ]),
-    sourcemaps.write('.'),
+    //sourcemaps.write('.'),
   dest);
 };

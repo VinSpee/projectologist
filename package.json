@@ -17,6 +17,7 @@
     "envify": "^3.2.0",
     "gulp-autoprefixer": "2.1.0",
     "gulp-cheerio": "^0.5.1",
+    "gulp-concat": "^2.4.3",
     "gulp-csso": "0.2.9",
     "gulp-derequire": "2.0.0",
     "gulp-ext": "1.0.0",
