@@ -5,6 +5,7 @@ module.exports = {
     styles: './app/styles/**/*.css',
     main_style: './app/styles/main.css',
     scripts: './app/scripts/**/*.{js,jsx}',
+    styleguide: './app/styleguide/index.md',
     main_script: './app/scripts/app.js',
     html: './app/html/*/**/*.html',
     main_html: './app/html/*.html'

@@ -1,14 +1,15 @@
 var chron   = require('chronic');
 var paths   = require('./paths');
 
-var cssmin  = require('./transforms/cssmin');
-var del     = require('./transforms/del');
-var scripts = require('./transforms/scripts');
-var html    = require('./transforms/html');
-var serve   = require('./transforms/serve');
-var minify  = require('./transforms/minify');
-var styles  = require('./transforms/styles');
-var icons   = require('./transforms/icons');
+var cssmin   = require('./transforms/cssmin');
+var del      = require('./transforms/del');
+var scripts  = require('./transforms/scripts');
+var html     = require('./transforms/html');
+var serve    = require('./transforms/serve');
+var minify   = require('./transforms/minify');
+var styledoc = require('./transforms/styledoc');
+var styles   = require('./transforms/styles');
+var icons    = require('./transforms/icons');
 
 chron('assemble', chron.once('html', 'styles', 'images', 'icons', 'scripts'));
 chron('default', chron.once('clean', 'assemble'), serve);
@@ -18,6 +19,12 @@ chron('html', chron
   .path(paths.src.main_html).watch(paths.src.html).watch(paths.src.main_html)
   .dest(paths.dest.html),
 html)
+
+chron('styledoc', chron
+  .path(paths.dest.styles + '/main.css', paths.src.styleguide)
+  .dest(paths.dest.html)
+  .watch(paths.src.styles),
+styledoc);
 
 chron('styles', chron
   .path(paths.src.main_style)

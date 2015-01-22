@@ -1,0 +1,17 @@
+/**
+ * Buttons
+ * All different kind of buttons used on website pages
+ * @base     button     Normal button
+ * @modifier .large     Large button
+ * @modifier :disabled  Button unable to be pressed
+ * @modifier .large:disabled Large button disabled
+ * @example  <button>Button text</button>
+ */
+
+button {
+	/* styles here */
+} 
+
+html {
+  background: red;
+}
