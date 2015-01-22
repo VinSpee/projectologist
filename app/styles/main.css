@@ -1,7 +1,17 @@
-:root {
-  --red: red;
-}
+/**
+ * Example:
+ */
 
-html {
-	background: var(--red);
-}
+/**
+ * Component:
+ * `.Component` - Components are the essence of life and the raison d'etre of 
+ * UI design.
+ * Live it, love it.
+ *
+ *     @example
+ *     <div class="Component">Component</div>
+ */
+
+@import "styleguide";
+
+:root {}

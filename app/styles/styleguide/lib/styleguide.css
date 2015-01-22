@@ -1,0 +1,183 @@
+/**
+/*
+ * Houses all of the components
+ */
+
+:root {
+	--SG-font                      : Sans-serif;
+	--SG-text-color                : black;
+	--SG-separator-color           : gray;
+	--SG-expand-color              : black;
+	--SG-expand-bg                 : black;
+
+	--SG-Headline-color            : black;
+	--SG-Headline--primary-color   : black;
+	--SG-Headline--secondary-color : black;
+	--SG-Headline--primary-bg      : transparent;
+
+	--SG-code                      : black;
+	--SG-code-bg                   : transparent;
+	--SG-code-tag                  : black;
+	--SG-code-comment              : black;
+	--SG-code-keyword              : black;
+	--SG-code-title                : black;
+	--SG-code-attribute            : black;
+	--SG-code-string               : black;
+	--SG-code-number               : black;
+	--SG-code-value                : black;
+}
+
+.sg {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: var(--SG-font);
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.sg *, .sg *:before, .sg *:after {
+	box-sizing: inherit;
+}
+
+.sg button {
+	cursor: pointer;
+}
+
+/*
+ * Syntax highlighting
+ */
+
+.sg .sg-code {
+	color: var(--SG-code);
+}
+
+.sg .hljs-tag {
+	color: var(--SG-code-tag);
+}
+
+.sg .hljs-comment {
+	color: var(--SG-code-comment);
+}
+
+.sg .hljs-keyword {
+	color: var(--SG-code-keyword);
+}
+
+.sg .hljs-title {
+	color: var(--SG-code-title);
+}
+
+.sg .hljs-attribute {
+	color: var(--SG-code-attribute);
+}
+
+.sg .hljs-string {
+	color: var(--SG-code-string);
+}
+
+.sg .hljs-number {
+	color: var(--SG-code-number);
+}
+
+.sg .hljs-value {
+	color: var(--SG-code-value);
+}
+/*
+ * Code expansion
+ *
+ *     .sg-example
+ *       .sg-canvas
+ *       pre.sg-code
+ *       button.sg-expando
+ */
+
+.sg-code.sg-hidden {
+	display: none;
+}
+
+.sg-code {
+	background: var(--SG-code-bg);
+	padding: .5rem 1rem;
+}
+
+.sg-expando {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+	background: transparent;
+}
+
+.sg-expando-contract {
+	top: 0;
+	margin-bottom: 0;
+}
+
+.sg-expando:before {
+	content: '•••';
+	display: block;
+	text-align: center;
+	font-size: 10px;
+	width: 100%;
+	height: 100%;
+	background: var(--SG-expand-bg);
+	border-radius: 3px;
+	color: var(--SG-expand-color);
+	padding: .5rem 1rem;
+}
+
+.sg-expando:hover:before,
+.sg-expando:focus:before {
+	color: #222;
+	background: #ddd;
+}
+
+.sg-expando:active:before {
+	color: #fff;
+	background: #111;
+}
+
+.sg-expando-contract:before {
+	content: '\2715';
+}
+
+h1.sg, h2.sg, h3.sg, h4.sg, h5.sg, h6.sg {
+	color: var(--SG-Headline-color);
+	line-height: 1;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+h1.sg {
+	background: var(--SG-Headline--primary-bg);
+	color: var(--SG-Headline--primary-color);
+	font-size: 4rem;
+	padding-top: .1em;
+	box-shadow: 0 2px 0 0 color(var(--SG-Headline--primary-color) a(10%));
+	margin-bottom: 1rem;
+	padding-left: 1rem;
+}
+
+h2.sg {
+	color: var(--SG-Headline--secondary-color);
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+h3.sg {
+	color: var(--SG-Headline-color);
+	font-size: 2rem;
+}
+
+.sg main {
+	margin-left: 1rem;
+	margin-right: 1rem;
+	max-width: 680px;
+}
+
+.sg .sg-section {
+	box-shadow: 0 1px 0 0 var(--SG-separator-color);
+	padding-bottom: 1rem;
+	margin-bottom: 3rem;
+}

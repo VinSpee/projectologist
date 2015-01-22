@@ -1,0 +1,20 @@
+{
+  "name": "styleguide",
+  "description": "Houses all of the components",
+  "version": "1.0.0",
+  "style": "index.css",
+  "files": [
+    "index.css"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "repository": {},
+  "keywords": [
+    "browser",
+    "css-components",
+    "suitcss",
+    "crank",
+    "style"
+  ]
+}
