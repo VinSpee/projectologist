@@ -16,7 +16,6 @@ chron('default', chron.once('assemble'), serve);
 chron('serve', serve);
 
 chron('html', chron
-  .after('styleguide')
   .path(paths.src.main_html)
   .dest(paths.dest.html)
   .watch(paths.src.html),
