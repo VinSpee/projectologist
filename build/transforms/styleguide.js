@@ -1,16 +1,17 @@
-var gutil     = require('gulp-util');
-var reload    = require('browser-sync').reload;
-var Styledown = require('styledown');
-var tap       = require('gulp-tap');
-var ext       = require('gulp-ext');
-
 module.exports = function(t) {
-  t.build(t.src(), tap(docify), ext.replace('html'), t.dest());
+  var ext       = require('gulp-ext');
+  var tap       = require('gulp-tap');
+  var reload    = require('browser-sync').reload;
+
+  var dest = t.dest();
+  if (t.params.watch) {
+    dest.pipe(reload({stream: true}));
+  }
+  t.build(t.src(), tap(docify), ext.replace('html'), dest);
 }
 
-var docFiles = [];
-
 function docify(file) {
+  var Styledown = require('styledown');
   if(file.contents) {
     var opts = {
       inline: true
