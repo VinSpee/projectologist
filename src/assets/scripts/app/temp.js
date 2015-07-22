@@ -1,7 +1,7 @@
 if (true) {
-  $('whatever')
-    .css('display', 'block')
-    .animate()
-    .hide()
+	$('whatever')
+		.css('display', 'block')
+		.animate()
+		.hide()
 
 }
