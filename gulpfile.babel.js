@@ -90,6 +90,15 @@ gulp.task('images', () => {
 	.pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('sprites', () => {
+	return gulp.src('app/images/icons/*.svg')
+	.pipe($.plumber())
+	.pipe($.if($.if.isFile, $.cache($.svgSprite({
+		mode: {
+			symbol: true
+		}))));
+});
+
 gulp.task('fonts', () => {
 	return gulp.src('app/fonts/**/*')
 	.pipe(gulp.dest('.tmp/fonts'))
