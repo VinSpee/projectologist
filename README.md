@@ -30,5 +30,4 @@ npm run clean
 
 ## TODO
 
-* hook up `stylelint`
 * git commit hook to enforce code style
