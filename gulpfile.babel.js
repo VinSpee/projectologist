@@ -91,12 +91,33 @@ gulp.task('images', () => {
 });
 
 gulp.task('sprites', () => {
+	const config = {
+		log: 'verbose',
+		shape: {
+			transform: [
+				{
+					svgo: {
+						plugins: [
+							{ removeDimensions: true },
+							{ removeAttrs: { attrs: '(fill|stroke)' } }
+						]
+					}
+				}
+			]
+		},
+		mode: {
+			symbol: {
+				dest: '.',
+				prefix: '.icon-%s',
+				sprite: './icons.svg'
+			}
+		}
+	};
 	return gulp.src('app/images/icons/*.svg')
 	.pipe($.plumber())
-	.pipe($.if($.if.isFile, $.cache($.svgSprite({
-		mode: {
-			symbol: true
-		}))));
+	.pipe($.svgSprite(config))
+	.pipe(gulp.dest('.tmp/images/'))
+	.pipe(gulp.dest('dist/icons'));
 });
 
 gulp.task('fonts', () => {

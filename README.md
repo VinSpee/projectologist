@@ -1,6 +1,3 @@
-# PROJECTOLOGIST
-He takes care of your shit for you.
-
 ## INSTALLATION
 
 ```bash
@@ -34,5 +31,4 @@ npm run clean
 ## TODO
 
 * hook up `stylelint`
-* svg icon compilation
 * git commit hook to enforce code style
