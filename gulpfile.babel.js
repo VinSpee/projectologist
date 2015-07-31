@@ -6,12 +6,25 @@ import bemLinter from 'postcss-bem-linter';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-const CSS_NAMESPACE = require('./package.json').config.namespace;
 
+import stylelint from 'stylelint';
+import reporter from 'postcss-reporter';
+import suitcssConfig from 'stylelint-config-suitcss';
+import merge from 'object-merge';
+const CSS_NAMESPACE = require('./package.json').config.namespace;
+const CSS_CONFIG = merge({
+	'rules': {
+		'indentation': [2, 'tab']
+	},
+	suitcssConfig
+});
 gulp.task('lint:css', () => {
 	return gulp.src(['app/styles/**/*.css', './web_modules/**/*.css'])
 	.pipe($.postcss([
-		bemLinter('suit', { nameSpace: CSS_NAMESPACE })
+		stylelint(CSS_CONFIG),
+		require('postcss-nested')(),
+		bemLinter('suit', { namespace: CSS_NAMESPACE }),
+		reporter()
 	]));
 });
 
@@ -24,7 +37,8 @@ gulp.task('styles', ['lint:css'], () => {
 		plugins: [
 			require('postcss-font-magician')({
 				hosted: './app/fonts'
-			})
+			}),
+			require('postcss-nested')
 		],
 		sourcemap: true
 	}))
@@ -82,7 +96,6 @@ gulp.task('html', ['styles', 'modernizr', 'scripts'], () => {
 	return gulp.src('app/*.html')
 	.pipe(assets)
 	.pipe($.if('*.js', $.uglify()))
-		.pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
 	.pipe(assets.restore())
 	.pipe($.useref())
 	.pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
@@ -162,7 +175,7 @@ gulp.task('serve', ['html', 'fonts'], () => {
 	});
 
 	gulp.watch([
-		'.tmp/*.html',
+		'.app/*.html',
 		'.tmp/images/**/*',
 		'.tmp/scripts/**/*.js',
 		'.tmp/fonts/**/*'

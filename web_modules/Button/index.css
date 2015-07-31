@@ -1,0 +1,21 @@
+/** @define Button */
+
+:root {
+	--Button-color: whitesmoke;
+	--Button-background: darkred;
+}
+
+.ns-Button {
+	border-radius: .33rem;
+	display: inline-block;
+	background-color: var(--Button-background);
+	border: 0;
+	color: var(--Button-color);
+	padding: .75em 1.75em;
+	font-size: 1rem;
+	text-transform: uppercase;
+	&--gg {
+		font-size: 2rem;
+		padding: .5em 2.5em;
+	}
+}
