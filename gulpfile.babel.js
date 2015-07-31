@@ -139,7 +139,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
 	browserSync({
-		notify: false,
+		notify: true,
 		port: 9000,
 		server: {
 			baseDir: ['.tmp', 'app']
@@ -147,13 +147,13 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
 	});
 
 	gulp.watch([
-		'app/*.html',
-		'app/scripts/**/*.js',
-		'web_modules/**/*.js',
-		'app/images/**/*',
+		'.tmp/*.html',
+		'.tmp/images/**/*',
+		'.tmp/scripts/**/*.js',
 		'.tmp/fonts/**/*'
 	]).on('change', reload);
 
+	gulp.watch(['app/scripts/**/*.js', 'web_modules/**/*.js'], ['scripts']);
 	gulp.watch(['app/styles/**/*.css', 'web_modules/**/*.css'], ['styles']);
 	gulp.watch('app/fonts/**/*', ['fonts']);
 });

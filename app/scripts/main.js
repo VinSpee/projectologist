@@ -1,3 +1,4 @@
+import './libs';
 import * as constants from './constants';
 
 let logStart = (text) => {
