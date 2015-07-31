@@ -61,7 +61,22 @@ gulp.task('scripts', ['lint:js'], () => {
 	.pipe(reload({stream: true}));
 });
 
-gulp.task('html', ['styles', 'scripts'], () => {
+gulp.task('modernizr', () => {
+	return gulp.src(['app/scripts/**/*.js'])
+	.pipe($.modernizr({
+		options: [
+			'setClasses',
+			'addTest',
+			'html5printshiv',
+			'testProp',
+			'fnBind'
+		]
+	}))
+	.pipe(gulp.dest('.tmp/scripts'))
+	.pipe(gulp.dest('dist/scripts'));
+});
+
+gulp.task('html', ['styles', 'modernizr', 'scripts'], () => {
 	const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
 	return gulp.src('app/*.html')
@@ -137,7 +152,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['html', 'fonts'], () => {
 	browserSync({
 		notify: true,
 		port: 9000,
